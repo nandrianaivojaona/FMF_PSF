@@ -976,7 +976,6 @@
         <options>FullEditor</options>
         <papers>Prescription</papers>
       </Item>
-  
 </MedForm>
 <MedForm name="Maternity::Obstetrics::Postnatal::Followup"> 
     <label lang="xx">Postnatal consultation</label>
@@ -1226,6 +1225,5 @@
   <options>NoEpisode;DontPrintEmptyValues</options>
   <file>__subForms__/maternity/obstetrics/ultrasound/central.xml</file>
 </MedForm>   
-</FreeMedForms>
-
+</FreeMedForm
 
