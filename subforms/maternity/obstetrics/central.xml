@@ -464,6 +464,7 @@
     </Item>
   </Item>	
   <Item name="First::Sign::Delivery" type="group">
+	  <column>2</column>
        <label>Mode d’entrée en travail :</label>
 	   <Item name="Sign::Delivery" type="combo">
         <value>
@@ -524,7 +525,7 @@
  	       </Item>
   </Item>
   <Item name="APD::Delivery" type="combo">
-	      <label>Accouchement sous-APD</label>
+	      <label options="labelontop" >Accouchement sous-APD</label>
 	      <value>
 	        <uuid id="0">Oui</uuid>
 	        <uuid id="1">Non</uuid>
@@ -534,7 +535,7 @@
 	      </value>
   </Item>
   <Item name="Directed::Delivery" type="combo">
-	      <label>Accouchement dirigé :</label>
+	      <label options="labelontop" >Accouchement dirigé :</label>
 	      <value>
 	        <uuid id="0">Oui</uuid>
 	        <uuid id="1">Non</uuid>
@@ -607,6 +608,7 @@
        </value>
   </Item>
   <Item name="Delivrance" type="group">
+	  <column>2</column>
 	<label>Mode de délivrance :</label>
     <Item name="" type="combo">
        <label></label>
@@ -634,16 +636,17 @@
 	</Item>
   </Item>
   <Item name="Uterine::Revision" type="group">
+	  <column>2</column>
 	  <label>Révision utérine : </label>
-      <Item name="" type="combo">
+     <Item name="" type="combo">
          <value>
           <possible id="0">Oui</possible>
           <possible id="1">Non</possible>
           <uuid id="0">Oui</uuid>
           <uuid id="1">Non</uuid>       
          </value>
-	  </Item>
-  	<Item name="Cause" type="group">
+	 </Item>
+  	 <Item name="Cause" type="group">
   		<options>collapsible</options>
   		<label>Cocher ici si Révision utérine :</label>
   	    <Item name="" type="combo">
@@ -659,7 +662,7 @@
   	          <uuid id="3">hémorragie dans le post-partum immédiat</uuid>      
   	         </value>
   	    </Item>
-  	</Item>
+  	 </Item>
   </Item>
   <Item name="Perinea" type="group">
 	  <label>Périnée : </label>
@@ -677,6 +680,7 @@
           <uuid id="0">EULD</uuid>    
          </value>
 	  </Item>
+   <Item name="" type="group">
   	<Item name="Degree" type="group">
 		<label>degré :</label>
   		<options>collapsible</options>
@@ -691,11 +695,12 @@
   	    <Item name="" type="shorttext">
   	    </Item>
   	</Item>
+   </Item>
   </Item>
   <Item name="Data::per::newborn" type="group">
 	  <label>Infos nouveaux-nés : colonnes pour chaque bébé à dvper</label>
 	  <Item name="Amniotic::Liquid" type="combo">
-		  <label>Liquide amniotique :</label>
+		  <label options="labelontop">Liquide amniotique :</label>
 		  <value>
 	          <possible id="0">clair</possible>
 	          <possible id="1">teinté</possible>
@@ -708,7 +713,7 @@
 		  </value>
 	  </Item>
 	  <Item name="Fetid::Amniotic::Liquid" type="combo">
-		  <label>Liquide amniotique fétide :</label>
+		  <label options="labelontop">Liquide amniotique fétide :</label>
 		  <value>
 	          <possible id="0">Oui</possible>
 	          <possible id="1">Non</possible>
@@ -717,6 +722,7 @@
 		  </value>
 	  </Item>
 	  <Item name="Circular::Presence" type="group">
+		  <column>2</column>
 		 <label>Présence de circulaire :</label>
 	     <Item name="Circular::Presence" type="combo">
 		  <value>
@@ -728,7 +734,9 @@
 			  <uuid id="2">écharpe</uuid>
 		  </value>
 	     </Item>
-		 <Item name="YES" type="group">
+		 <Item name="" type="group">
+		  <Item name="YES" type="group">
+			 <column>1</column>
 			 <options>collapsible</options>
 			 <label>cocher ici si présence de circulaire OUI</label>
 		     <Item name="" type="combo">
@@ -739,9 +747,10 @@
 		          <uuid id="1">double</uuid>
 			   </value>
 		     </Item>
-		 </Item>
-		 <Item name="Echarpe" type="group">
+		  </Item>
+		  <Item name="Echarpe" type="group">
 			 <options>collapsible</options>
+			 <column>1</column>
 			 <label>cocher ici si présence de circulaire Echarpe</label>
 		     <Item name="" type="combo">
 			   <value>
@@ -751,7 +760,8 @@
 		          <uuid id="1">lâche</uuid>
 			   </value>
 		     </Item>
-		 </Item>
+		  </Item>
+	     </Item>
 	  </Item>
 	  <Item name="Sign::Delivery::duration" type="shorttext">
 		  <label>Durée de travail : (heures et mn)</label>
@@ -801,7 +811,7 @@
 		   </value>
 	  </Item>
   </Item>
-	  <Item name="Complication" type="group">
+  <Item name="Complication" type="group">
 		  <label>Complications : </label>
 	      <Item name="" type="combo">
 		   <value>
@@ -842,9 +852,8 @@
 			  </Item>	  	 
 		  </Item>  
 	  </Item>
-	  <Item name="Postnatal::Prescription" type="group">
-		  <label>Prescription postnatal :</label>
-	
+  <Item name="Postnatal::Prescription" type="group">
+		  <label>Prescription postnatal :</label>	
 		  <Item name="Antibiotherapy" type="group">
 			  <options>collapsible</options>
 			  <label>Antibiothérapie</label>
@@ -903,9 +912,10 @@
 				  </Item>
 			  </Item>
 		  </Item>
-	  </Item>
+  </Item>
 	  <Item name="Counseling" type="combo">
 	   <label>Counseling : </label>
+	   <options>labelontop</options>
 	   <value>
 	     <possible id="0">Allaitement</possible>
 	     <possible id="1">soin du périnée</possible>
@@ -917,6 +927,7 @@
       </Item>
 	  <Item name="Malformation" type="group">
 		  <label>Présence malformation : </label>
+		  <column>2</column>
 	      <Item name="Presence" type="combo">
 		   <value>
 		     <possible id="0">Oui</possible>
@@ -934,6 +945,7 @@
 		  </Item>  
 	  </Item> 
 	  <Item name="Transfer::Primary" type="group">
+		  <column>2</column>
 		  <label>Transfert en néo-nat dans le post partum immédiat : </label>
 	      <Item name="" type="combo">
 		   <value>
@@ -954,6 +966,7 @@
 	  </Item>
 	  <Item name="Transfer::Secondary" type="group">
 		  <label>Transfert secondaire en néo-nat  : </label>
+		  <column>2</column>
 	      <Item name="" type="combo">
 		   <value>
 		     <possible id="0">Oui</possible>
@@ -976,7 +989,6 @@
         <options>FullEditor</options>
         <papers>Prescription</papers>
       </Item>
-  
 </MedForm>
 <MedForm name="Maternity::Obstetrics::Postnatal::Followup"> 
     <label lang="xx">Postnatal consultation</label>
@@ -1227,5 +1239,3 @@
   <file>__subForms__/maternity/obstetrics/ultrasound/central.xml</file>
 </MedForm>   
 </FreeMedForms>
-
-
