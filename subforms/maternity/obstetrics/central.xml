@@ -1238,4 +1238,9 @@
   <options>NoEpisode;DontPrintEmptyValues</options>
   <file>__subForms__/maternity/obstetrics/ultrasound/central.xml</file>
 </MedForm>   
+<<<<<<< HEAD
 </FreeMedForms>
+=======
+</FreeMedForm
+
+>>>>>>> origin/master
