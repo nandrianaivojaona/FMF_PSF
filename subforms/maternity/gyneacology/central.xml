@@ -150,7 +150,7 @@
   <Item name="COL" type="group">
 	<label>COL</label>
     <option>compact</option>
-	<Item name="Position" type="combo">
+	<Item name="Col::Position" type="combo">
      <label>Position</label>
      <value>
        <uuid id="0">postérieur</uuid>
@@ -162,7 +162,7 @@
        <possible id="2" lang="xx">latéro-dévié</possible>             
       </value>
     </Item>
-    <Item name="Longeur" type="combo">
+    <Item name="Col::Longeur" type="combo">
      <label>Longueur</label>
      <value>
        <uuid id="0">long</uuid>
@@ -178,7 +178,7 @@
               
       </value>
     </Item>
-    <Item name="Consistance" type="combo">
+    <Item name="Col::Consistance" type="combo">
      <label>Consistance</label>
      <value>
        <uuid id="0">mou</uuid>
@@ -197,22 +197,22 @@
   </Item>
   <Item name="Corps::Uterin" type="group">
      <label>CORPS UTERIN</label>
-	 <Item name="Taille" type="shorttext">
+	 <Item name="Corps::Uterin::Taille" type="shorttext">
       <label>Taille</label>
      </Item>  
-     <Item name="Position" type="shorttext">
+     <Item name="Corps::Uterin::Position" type="shorttext">
 	  <label>Position</label>
      </Item>
-     <Item name="Form" type="shorttext">
+     <Item name="Corps::Uterin::Form" type="shorttext">
 	  <label>Forme</label>
      </Item>
-     <Item name="Consistance" type="shorttext">
+     <Item name="Corps::Uterin::Consistance" type="shorttext">
 	     <label>Consistance</label>
      </Item> 
-     <Item name="Mobility" type="shorttext">
+     <Item name="Corps::Uterin::Mobility" type="shorttext">
 	  <label>Mobilité</label>
      </Item> 
-     <Item name="Sensibility" type="shorttext">
+     <Item name="Corps::Uterin::Sensibility" type="shorttext">
 	  <label>Sensibilité</label>
      </Item>
   </Item> 

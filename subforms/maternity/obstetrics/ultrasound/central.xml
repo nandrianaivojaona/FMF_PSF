@@ -1310,10 +1310,10 @@
       </Item>
        <Item name="De::nombre" type="shorttext">
        <label>de (nombre) :</label>
-    </Item>
+       </Item>
 	   <Item name="SA" type="shorttext">
        <label>SA :</label>
-      </Item>
+       </Item>
 	   <Item name="Jours" type="shorttext">
        <label>jour(s) au :</label>
       </Item>
@@ -2181,20 +2181,20 @@
     <options>compact</options>
 	<Item type="group" name="Clinical::Info">
 		<label>Renseignements Cliniques :</label>
-		<Item type="shorttext" name="Eventual::Comments">
+		<Item type="shorttext" name="Clinical::Info::Eventual::Comments">
 		  <label>Commentaires éventuels</label>
 	    </Item>
     </Item>
 	
-	<Item type="group" name="CHISON">
+	<Item type="group" name="Clinical::Info::CHISON">
 		<label>Appareil : CHISON IVIS 60 Expert</label>
-		<Item type="shorttext" name="Results">
+		<Item type="shorttext" name="Clinical::Info::Chison::Results">
 			<label>Résultats</label>
 		</Item>
 	</Item>
-	<Item type="group" name="Uterus">
+	<Item type="group" name="Clinical::Info::Uterus">
 		<label>Utérus :</label>
-		<Item type="combo" name="Position">
+		<Item type="combo" name="Clinical::Info::Uterus::Position">
 			<label>Position</label>
 	        <value>
 	          <possible id="0">antéversé</possible>
@@ -2205,25 +2205,25 @@
 			  <uuid id="2">rétroversé</uuid>    
 	        </value>
 		</Item>
-	    <Item type="group" name="Mensurations">
+	    <Item type="group" name="Clinical::Info::Uterus::Mensurations">
 		  <label>Mensurations:</label>
-	      <Item type="measurement" name="Long">
+	      <Item type="measurement" name="Clinical::Info::Uterus::Long">
 	       <label>Longueur</label>
 	       <options>DontPrintEmptyValues;Length</options>
 	       <default>millimeter</default>
 	      </Item>
-	      <Item type="measurement" name="Large">
+	      <Item type="measurement" name="Clinical::Info::Uterus::Large">
 	       <label>Largeur</label>
 	       <options>DontPrintEmptyValues;Length</options>
 	       <default>millimeter</default>
 	      </Item>
-	      <Item type="measurement" name="Deep">
+	      <Item type="measurement" name="Clinical::Info::Uterus::Deep">
 	       <label>Epaisseur</label>
 	       <options>DontPrintEmptyValues;Length</options>
 	       <default>meter</default>
 	      </Item>
 	    </Item>
-  		<Item type="combo" name="Contours">
+  		<Item type="combo" name="Clinical::Info::Uterus::Contours">
   			<label>Contours</label>
   	        <value>
   	          <possible id="0">Regulier</possible>
@@ -2232,7 +2232,7 @@
   	          <uuid id="1">Irrégulier</uuid>
   	        </value>
   		</Item>
-  		<Item type="combo" name="Myometer">
+  		<Item type="combo" name="Clinical::Info::Myometer">
   			<label>Myomètre</label>
   	        <value>
   	          <possible id="0">Homgène</possible>
@@ -2242,42 +2242,42 @@
   	        </value>
   		</Item>
 	</Item>
-	<Item type="group" name="Ovaire">
+	<Item type="group" name="Clinical::Info::Ovaire">
 		<column>2</column>
 		<label>Ovaires :</label>
-		<Item type="group" name="Ovaire::Droit">
+		<Item type="group" name="Clinical::Info::Ovaire::Droit">
 			<label>Ovaires droit :</label>
-  	      <Item type="measurement" name="Dimension">
+  	      <Item type="measurement" name="Clinical::Info::Ovaire::Droit::Dimension">
   	       <label>Dimensions (mm)</label>
   	       <options>DontPrintEmptyValues;Length</options>
   	       <default>millimeter</default>
   	      </Item>
-		  <Item type="shorttext" name="Echostructure">
+		  <Item type="shorttext" name="Clinical::Info::Ovaire::Droit::Echostructure">
 			  <label>Echostructure :</label>
 		  </Item>
-		  <Item type="shorttext" name="Follicules">
+		  <Item type="shorttext" name="Clinical::Info::Ovaire::Droit::Follicules">
 			  <label>Follicule :</label>
 		  </Item>
 		</Item>
-		<Item type="group" name="Ovaire::Gauche">
+		<Item type="group" name="Clinical::Info::Ovaire::Gauche">
 			<label>Ovaires gauche :</label>
-  	      <Item type="measurement" name="Dimension">
+  	      <Item type="measurement" name="Clinical::Info::Ovaire::Gauche::Dimension">
   	       <label>Dimensions (mm)</label>
   	       <options>DontPrintEmptyValues;Length</options>
   	       <default>millimeter</default>
   	      </Item>
-		  <Item type="shorttext" name="Echostructure">
+		  <Item type="shorttext" name="Clinical::Info::Ovaire::Gauche::Echostructure">
 			  <label>Echostructure :</label>
 		  </Item>
-		  <Item type="shorttext" name="Follicules">
+		  <Item type="shorttext" name="Clinical::Info::Ovaire::Gauche::Follicules">
 			  <label>Follicule :</label>
 		  </Item>
 		</Item>
-		<Item type="shorttext" name="Autres::Structure">
+		<Item type="shorttext" name="Clinical::Info::Autres::Structure">
 			<label>Autres structures annexielles :</label>
 		</Item>
 	</Item>
-	<Item type="group" name="Cul::Sac::Douglas">
+	<Item type="group" name="Clinical::Info::Cul::Sac::Douglas">
 		<label>Cul de sac de Douglas :</label>
 		<Item type="combo" name="">
 			<label>Cul de sac de Douglas:</label>
@@ -2288,13 +2288,13 @@
 	          <uuid id="1">épanchement</uuid>  
 	        </value>
 		</Item>
-		<Item type="shorttext" name="Eventual::Comments">
+		<Item type="shorttext" name="Clinical::Info::Eventual::Douglas::Comments">
 			<label>Commentaires éventuels</label>
 		</Item>
 	</Item>
-	<Item type="group" name="Summary">
+	<Item type="group" name="Pelvien::Summary::Group">
 		<label>Conclusion</label>
-		<Item type="combo" name="">
+		<Item type="combo" name="Pelvien::Summary">
 			<label>Conclusion :</label>
 	        <value>
 	          <possible id="0">Echographie pelvienne normale</possible>
@@ -2303,7 +2303,7 @@
 	          <uuid id="1"></uuid>  
 	        </value>
 		</Item>
-		<Item type="shorttext" name="Conclusion::Text">
+		<Item type="shorttext" name="Pelvien::Conclusion::Text">
 			<label>Saisie Texte</label>
 		</Item>
 	</Item>

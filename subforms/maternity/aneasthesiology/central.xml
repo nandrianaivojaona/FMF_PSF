@@ -152,24 +152,19 @@
               <uuid id="1">Oui</uuid>       
              </value>
        </Item>
-       <Item type="shorttext" name="Text">
+       <Item type="shorttext" name="Bruits::anormaus::Text">
              <label>Si Bruits normaux : oui</label>
-        </Item>
-       
+       </Item>
     </Item>
     <Item type="group" name="Examen::Neurologique">
 	    <option>collapsible</option>
         <label lang="fr">Examen neurologique :</label>
   	    <label lang="xx">Neurological examination :</label>
-		<Item type="group" name="examen:neurologique::convulsions">
-		  <option>compact</option>
-          <Item type="check" name="neurologique::convulsions">
-	        <uilink widget="ConvulsionCheck"/>
+        <Item type="check" name="neurologique::convulsions">
             <label lang="xx">Convulsion-Spasm</label>
 		    <label lang="fr">Convulsion</label>
             <options>DontPrintEmptyValues</options>
             <value><default>unchecked</default></value>
-          </Item>
         </Item>
         <Item type="check" name="neurologique::hemiplegia">
 			<uilink widget="HemiplegiaCheck"/>
@@ -183,7 +178,7 @@
 		 <label lang="fr">Autres</label>
         </Item>
 	</Item>
-	<Item type="group" name="examen::Biologique">
+	<Item type="group" name="Examen::Biologique">
 		   <option>collapsible</option>
 	       <label lang="fr">Examen biologique :</label>
 	  	   <label lang="xx">Biological review :</label>
@@ -318,15 +313,14 @@
         <label lang="xx">Anaesthesiology Prescription</label>
   	    <label lang="fr">Prescription et protocole</label>
 		<Item type="group" name="prescription::surgery">
-			<label lang="fr">Préscription préopératoire</label>
-			<label lang="fr">Surgery Prescription</label>
+			<label>Préscription préopératoire (Médicaments à gérer dans Page Médicaments)</label>
 			<column>2</column>
+			<!-- à gèrer dans Page Médicaments
 			<Item type="helptext" name="prescription::surgery::Medicament">
 				<label lang="fr">Médicaments à gérer dans Page Médicaments</label>
 				<label lang="xx">Go to Page Drugs</label>
 			</Item>
-			<!--
-			<Item type="shorttext" name="Dose">
+			<Item type="shorttext" name="prescription::surgery::Medicament::Dose">
 				<label lang="fr">Dose prescrite</label>
 				<label lang="xx">Posology</label>
 			</Item>
@@ -340,11 +334,10 @@
 			  <label lang="xx">Antibioprophylaxie</label>
             </Item>
 			<Item type="group" name="Protocole::Analgesique:Post::Surgery">
-			  <label lang="fr">Analgesie Protocol post surgery</label>
-			  <label lang="xx">Protocole analgésique post-opératoire</label>
-		    </Item>
-			<Item type="shorttext" name="Protocol::Analgesique:Post:Operatoire">
+			  <label>Protocole analgésique post-opératoire</label>
+			  <Item type="shorttext" name="Protocol::Analgesique:Post:Operatoire::Text">
 			  </Item>
+		    </Item>
   			<Item type="group" name="Protocole::Anesthesy">
   			  <label lang="fr">Anasthesy Protocol</label>
   			  <label lang="xx">Protocole anésthésique</label>

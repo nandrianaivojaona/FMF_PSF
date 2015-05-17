@@ -49,21 +49,23 @@
 	  <label options="labelontop" lang="fr">Date prévue accouchement</label>
 	  <label options="labelontop" lang="xx">DPA</label>
   </Item>
-  <Item type="choice" name="Datedeterminee">
+  <Item type="combo" name="Datedeterminee">
+      <label options="labelontop" lang="fr">Date determinée</label>
+      <label options="labelontop" lang="xx">Determinated Date</label>
        <value>
           <possible id="0">DR, Echo inf 12 SA</possible>
-		  <possible id="0">Echo inf 12 SA</possible>
-          <possible id="1">Incertaine</possible>          
-          <uuid id="0">DR</uuid>
-		  <uuid id="0">Echo inf 12 SA</uuid>
-          <uuid id="1">Incertaine</uuid>
+		  <possible id="1">Echo inf 12 SA</possible>
+          <possible id="2">Incertaine</possible>          
+          <uuid id="0">DR, Echo inf 12 SA</uuid>
+		  <uuid id="1">Echo inf 12 SA</uuid>
+          <uuid id="2">Incertaine</uuid>
        </value>
   </Item>
   <Item type="measurement" name="Weight">
-      <label options="labelontop" lang="xx">Poids avant la grossesse (kg)</label>
-      <label options="labelontop" lang="fr">Weight (Kg) before pregnancy</label>
+      <label options="labelontop" lang="fr">Poids avant la grossesse (kg)</label>
+      <label options="labelontop" lang="xx">Weight (Kg) before pregnancy</label>
       <options>DontPrintEmptyValues;Weight</options>
-      <default>Kilogramme(s)</default>
+      <default>Kilogram(s)</default>
   </Item>
 
 </MedForm>

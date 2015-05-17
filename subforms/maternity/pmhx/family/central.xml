@@ -42,10 +42,10 @@
 	   <label lang="fr">ATCD Familiaux</label>
 	   <column>1</column>
        <Item type="group" name="HTA">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">HTA :</label>
 			  <label lang="xx">Blood pressure :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="HTA::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -80,16 +80,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="HTA::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Diabetes">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Diabète :</label>
 			  <label lang="xx">Diabetes :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Diabetes::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -124,16 +124,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Diabetes::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Asthma">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Asthme :</label>
 			  <label lang="xx">Asthma :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Asthma::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -168,16 +168,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Asthma::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Malformation">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Malformation :</label>
 			  <label lang="xx">Malformation:</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Malformation::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -212,16 +212,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Malformation::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Hereditiary::Diseases">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Maladies héréditaires</label>
 			  <label lang="xx">Heriditiary diseases</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Hereditary::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -256,16 +256,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Hereditary::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Breast::Cancer">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Cancer du sein :</label>
 			  <label lang="xx">Breast cancer :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Breast::Cancer::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -300,16 +300,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Breast::Cancer::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Uterus::Cancer">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Cancer de l'utérus :</label>
 			  <label lang="xx">Utérus cancer :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Uterus::Cancer::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -344,16 +344,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Uterus::Cancer::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Others::Cancer">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Autres cancers :</label>
 			  <label lang="xx">Other cancer :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Others::Cancer::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -388,16 +388,16 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Others::Cancer::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>
 	   </Item>
        <Item type="group" name="Others::Pmhx">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="fr">Autres antécédents :</label>
 			  <label lang="xx">Other PMHx :</label>
-			  <Item type="multilist" name="Choice">
+			  <Item type="multilist" name="Others::Pmhx::Choice">
 				  <label lang="fr">Familles choisies </label>
 				  <label lang="fr">Family choosen </label>
 			          <value>
@@ -432,7 +432,7 @@
 						<uuid id="13">Cousin</uuid>
 			          </value>
 			  </Item>
-			  <Item type="shorttext" name="Comment">
+			  <Item type="shorttext" name="Others::Pmhx::Comment">
 				  <label lang="fr">Commentaires éventuels</label>
 				  <label lang="xx">Comments in case of</label>
 			  </Item>

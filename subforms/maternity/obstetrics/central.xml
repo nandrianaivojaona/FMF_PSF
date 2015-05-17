@@ -23,11 +23,11 @@
 
 </formdescription>
 <MedForm name="Maternity::Obstetrics::Prenatal::Followup" type="form">
-  <label>Consultation prénatale</label>
+  <label>Consultation-Suivi prénatale</label>
   <creationdate>27-08-2009</creationdate>
   <categorie>Consultation</categorie>
 
-  <label lang="fr">Consultation prénatale</label>
+  <label lang="fr">Consultation-Suivi prénatale</label>
   <categorie lang="fr">Echantillons</categorie>
   <authors lang="fr">Dr Eric Maeker</authors>
   <description lang="fr">Petite description ici</description>
@@ -49,13 +49,13 @@
       <label lang="xx">Poids avant la grossesse (kg)</label>
       <label lang="fr">Poids avant la grossesse (kg)</label>
       <options>DontPrintEmptyValues;Weight</options>
-      <default>Kilogramme(s)</default>
+      <default>kilogram</default>
     </Item>
     <Item type="measurement" name="Weight">
       <label lang="xx">Poids (kg)</label>
       <label lang="fr">Poids (kg)</label>
       <options>DontPrintEmptyValues;Weight</options>
-      <default>Kilogramme(s)</default>
+      <default>kilogram</default>
     </Item>
     <Item type="measurement" name="Height">
       <label lang="xx">Height</label>
@@ -63,29 +63,35 @@
       <options>DontPrintEmptyValues;Length</options>
       <default>meter</default>
     </Item>
-	<Item name="Blood::Pressure" type="spin">
-		<label>TA :</label>
+	<Item name="Blood::pressure" type="group">
+	  <label>TA :</label>
+	  <Item name="Systolic" type="spin">
+		<label>Systolique:</label>
+	  </Item>
+	  <Item name="Diastolic" type="spin">
+		<label>Diastolique:</label>
+	  </Item>
 	</Item>
-    <Item name="" type="group">
+    <Item name="Blood::Measurment" type="group">
       <option>compact</option>
 	  <Item type="measurement" name="HU">
       <label lang="xx">HU (cm)</label>
       <label lang="fr">HU (cm)</label>
       <options>DontPrintEmptyValues;Length</options>
-      <default>meter</default>
-    </Item>
+      <default>centimeter</default>
+       </Item>
       <Item name="BDCF" type="combo">
-     <label>Bdcf</label>
-     <value>
+        <label>Bdcf</label>
+       <value>
        <possible id="0">positif</possible>
        <possible id="1">négatif</possible>
        <uuid id="0">positif</uuid>
        <uuid id="1">négatif</uuid>       
-     </value>
-    </Item>
+       </value>
+      </Item>
 	  <Item name="Presentation" type="combo">
-     <label>Présentation</label>
-     <value>
+        <label>Présentation</label>
+       <value>
        <possible id="0">cephalique</possible>
        <possible id="1">transversale</possible>
        <possible id="2">siège complet</possible>
@@ -95,8 +101,8 @@
        <uuid id="1">transversale</uuid>
        <uuid id="2">siège_complet</uuid>
        <uuid id="3">siège_décomplété</uuid>       
-     </value>
-    </Item>
+      </value>
+     </Item>
       <Item name="Back" type="combo">
      <label>Dos :</label>
      <value>
@@ -125,7 +131,7 @@
   </Item>
   <Item name="OMI" type="group">
 	  <label options="labelontop" >OMI :</label>
-     <Item name="" type="combo">
+     <Item name="OMI::Choice" type="combo">
       <label>OMI</label>
       <value>
        <possible id="0">présence</possible>
@@ -137,13 +143,13 @@
      <Item name="Presence::If" type="group">
 		<options>collapsible</options>
         <label>Cocher ici Si présence</label>
-		<Item name="" type="shorttext">
+		<Item name="Presence::Text" type="shorttext">
 		</Item>
      </Item>
   </Item>
   <Item name="Varice" type="group">
 	  <label options="labelontop" >OMI :</label>
-      <Item name="" type="combo">
+      <Item name="Varice::Choice" type="combo">
           <label>Varices</label>
           <value>
        <possible id="0">présence</possible>
@@ -152,16 +158,16 @@
        <uuid id="1">absence</uuid>               
      </value>
       </Item>
-      <Item name="Presence::If" type="group">
+      <Item name="Presence::If::Varices" type="group">
  		<options>collapsible</options>
          <label>Cocher ici Si présence</label>
- 		<Item name="" type="shorttext">
+ 		<Item name="Presence::Varices::Text" type="shorttext">
  		</Item>
       </Item>
   </Item>
   <Item name="COL" type="group">
     <option>compact</option>
-    <Item name="Position" type="combo">
+    <Item name="Col::Position" type="combo">
      <label>Position :</label>
      <value>
        <possible id="0">postérieur</possible>
@@ -174,7 +180,7 @@
        <uuid id="3">latéro_dévié</uuid>                
      </value>
     </Item>
-    <Item name="Longueur" type="combo">
+    <Item name="Col::Longueur" type="combo">
      <label>Longueur :</label>
      <value>
        <possible id="0">long</possible>
@@ -189,7 +195,7 @@
        <uuid id="4">effacé</uuid>
      </value>
     </Item>
-    <Item name="Consistance" type="combo">
+    <Item name="Col::Consistance" type="combo">
      <label>Consistance :</label>
      <value>
        <possible id="0">mou</possible>
@@ -198,11 +204,11 @@
        <uuid id="1">ferme</uuid>               
      </value>
     </Item>
-    <Item name="Dilatation"  type="shorttext">
+    <Item name="Col::Dilatation"  type="shorttext">
       <label>Dilatation de l'orifice externe :</label>
     </Item>  
   </Item>
-  <Item name="Bassin" type="combo">
+  <Item name="Col::Bassin" type="combo">
      <label>Bassin :</label>
      <value>
        <possible id="0">rétréci</possible>
@@ -219,7 +225,7 @@
   </Item>
   <Item name="Segment::Inferieur" type="group">
     <option>compact</option>
-    <Item name="" type="combo">
+    <Item name="Segment::Inferieur::Choice" type="combo">
      <label options="labelontop" >Segment inférieur (SI) :</label>
      <value>
        <possible id="0">amplié</possible>
@@ -228,7 +234,9 @@
        <uuid id="1">non_amplié</uuid>                   
      </value>
     </Item>  
-    <Item name="Diagnosis" type="combo">
+	 <Item name="Segment::Inferieur::Diagnosis" type="group">
+    <option>compact</option>
+    <Item name="Segment::Inferieur::Diagnosis::Choice" type="combo">
      <label>Diagnostics :</label>
      <value>
        <possible id="0">grossesse normalement évolutive</possible>
@@ -238,10 +246,14 @@
        <uuid id="1">RCIU</uuid> 
        <uuid id="2">grossesse_terme_normalement_évolutive</uuid>            </value>
     </Item>
-	<Item name="Problem" type="shorttext">
+	<Item name="Segment::Inferieur::Diagnosis::Text" type="shorttext">
+      <label>Diagnostic :</label>
+    </Item>
+	</Item>
+	<Item name="Segment::Inferieur::Problem::Text" type="shorttext">
       <label>Problèmes :</label>
     </Item>
-    <Item name="Treatment::Supllementation" type="shorttext">
+    <Item name="Treatment::Supplementation::Text" type="shorttext">
       <label>Traîtements et supplémentations :</label>
     </Item>
 	<Item name="Complemantary::Examination" type="multilist">
@@ -329,12 +341,12 @@
 	 </value>
 	 <options>resizeToContent;DontPrintEmptyValue</options>
   </Item>
-  <Item name="Other" type="shorttext">
+  <Item name="blood::Checkp::Other" type="shorttext">
 		<label>Autres :</label>
 	</Item>
   <Item name="Ultrasound" type="group">
     <label>Echographie :</label>
-    <Item name="Date" type="date">
+    <Item name="Ultrasound::Date" type="date">
        <label>Date :</label>
     </Item>
     <Item name="BIP" type="shorttext">
@@ -349,10 +361,10 @@
     <Item name="Placenta" type="shorttext">
       <label>Placenta :</label>
     </Item>
-    <Item name="Other" type="shorttext">
+    <Item name="Ultrasound::Other" type="shorttext">
       <label>Autres :</label>
     </Item>
-    <Item name="Conclusion" type="longtext">
+    <Item name="Ultrasound::Conclusion" type="longtext">
       <label>Conclusion :</label> 
     </Item> 
   </Item>
@@ -410,7 +422,7 @@
   <Item name="Room::Delivery::Entry::Mode" type="group">
 	<label>Mode d’entrée en salle de naissance : </label>
 	<column>2</column>      
-	<Item name="" type="combo">
+	<Item name="Room::Delivery::Entry::Mode::Choice" type="combo">
       
 	  <value>
        
@@ -427,7 +439,7 @@
 	</Item>
 	<Item name="If::referred" type="group">
 		<label>Reference</label>
-	<Item name="" type="group">
+	<Item name="If::referred::Choice" type="group">
 		<options>collapsible</options>
 		<column>1</column>
         <label>Si "référée", cocher ici pour compléter Référent   :</label>
@@ -442,7 +454,7 @@
 		<options>collapsible</options>
 		<column>1</column>
 		<label>Cocher ici Si "venue d'elle-même", pour compléter </label>
-	   <Item name="Self::initiative" type="combo">
+	   <Item name="Self::initiative::Choice" type="combo">
          <value>
          <possible id="0">suivie au PSF</possible>
          <possible id="1">non suivie au PSF</possible>
@@ -459,7 +471,7 @@
 		 <Item name="Number::Consultation" type="shorttext">
                <label>Nombre de consultations :</label>
          </Item>
-	 </Item>
+	   </Item>
     </Item>
     </Item>
   </Item>	
@@ -484,7 +496,7 @@
                   <label>Score Bishop :</label>
          </Item>
 	   </Item> 
-    </Item>		
+  </Item>		
     
   <Item name="Way::Delivery" type="group">
        
@@ -503,23 +515,23 @@
         </value>
 	   
 	   </Item>
-	   <Item name="Comments" type="shorttext">
+	   <Item name="Way::Delivery::Comments" type="shorttext">
              
 			 <label>Commentaires :</label> 
 	   
 	   </Item>		
   </Item>
   <Item name="Provider::Delivery" type="group">
-           <Item name="Doctor" type="shorttext">
+           <Item name="Provider::Delivery::Doctor" type="shorttext">
  		     <label>Médecins :</label>
  	       </Item>
-           <Item name="Midwife" type="shorttext">
+           <Item name="Provider::Delivery::Midwife" type="shorttext">
  		     <label>Sage-Femmes :</label>
  	       </Item>
-           <Item name="Anaesthesit" type="group">
+           <Item name="Provider::Delivery::Anaesthesit" type="group">
 			   <options>collapsible</options>
  		       <label>Si OC Cocher ici pour saisir Anésthésiste :</label>
-	           <Item name="" type="shorttext">
+	           <Item name="Provider::Delivery::Anaestheist::Text" type="shorttext">
 	 		     <label>Anesthésiste :</label>
 	 	       </Item>
  	       </Item>
@@ -544,9 +556,9 @@
 	        <possible id="1">Non</possible>
 	      </value>
   </Item>
-    <Item name="PER::Sign::Delivery" type="group">
+     <Item name="Group::PER::Sign::Delivery" type="group">
 	  <label>PER :</label>
-	 <Item name="" type="combo">
+	 <Item name="PER::Sign::Delivery" type="combo">
 	  <label>PER avant travail</label>
 	  <value>
 	         <uuid id="0">Oui</uuid>
@@ -556,11 +568,10 @@
 	         <possible id="1">Non</possible>
 	 </value>
      </Item>
-     <Item name="Before" type="group">
+     <Item name="Group::PER::Sign::Delivery::Before" type="group">
    		<options>collapsible</options>
         <label>Cocher ici si Oui   :</label>
-   	    <Item name="Referred::Per::Hour" type="moderndate">
-			<dateformat>HH:MM</dateformat>
+   	    <Item name="Referred::Per::Hour::Text" type="shorttext">
               <label>Heure :</label>
         </Item>
 		<Item name="PER::Test::Strepto" type="combo">
@@ -573,10 +584,10 @@
 			 </value>
    		</Item>
      </Item>
-     <Item name="During" type="group">
+     <Item name="PER::Sign::Delivery::During" type="group">
    		<options>collapsible</options>
         <label>Cocher ici si NON PER avant travail   :</label>
-		<Item name="" type="combo">
+		<Item name="PER::Sign::Delivery::Choice" type="combo">
 		 	 <label>PER au cours de travail :</label>
 		 	 <value>
 		 	     <uuid id="0">Oui</uuid>
@@ -584,10 +595,10 @@
 		 	     <possible id="0">Oui</possible>
 		 	     <possible id="1">Non</possible>
 			 </value>
-		     <Item name="Hour" type="group">
+		     <Item name="PER::Sign::Delivery::Hour::Group" type="group">
 		   		<options>collapsible</options>
 		        <label>Cocher ici si Oui PER au cours de travail   :</label>
-	    	   <Item name="Hour" type="moderndate">
+	    	   <Item name="PER::Sign::Delivery::Hour" type="moderndate">
 	 			 <dateformat>HH:MM</dateformat>
 	              <label>Heure :</label>
 	           </Item>
@@ -598,7 +609,7 @@
   <Item name="Delay::Water::Delivery" type="shorttext">
 	  <label>Délai entre accouchement et la rupture de la poche des eaux"</label>
   </Item>
-  <Item name="Degagement" type="combo">
+  <Item name="PER::Sign::Delivery::Degagement" type="combo">
        <label>Mode de dégagement : </label>
        <value>
         <possible id="0">OP</possible>
@@ -607,10 +618,10 @@
         <uuid id="1">OS</uuid>       
        </value>
   </Item>
-  <Item name="Delivrance" type="group">
+  <Item name="PER::Sign::Delivery::Delivrance::Group" type="group">
 	  <column>2</column>
 	<label>Mode de délivrance :</label>
-    <Item name="" type="combo">
+    <Item name="PER::Sign::Delivery::Delivrance" type="combo">
        <label></label>
        <value>
         <possible id="0">naturelle</possible>
@@ -621,10 +632,10 @@
 		<uuid id="1">manuelle</uuid>       
        </value>
     </Item>
-	<Item name="Directed::Delivrance" type="group">
+	<Item name="PER::Sign::Delivery::Directed::Delivrance::Group" type="group">
 		<options>collapsible</options>
 		<label>Cocher ici si Mode délivrance dirigée :</label>
-	    <Item name="" type="combo">
+	    <Item name="PER::Sign::Delivery::Directed::Delivrance" type="combo">
 	         <label></label>
 	         <value>
 	          <possible id="0">Sous-syntocinon</possible>
@@ -635,10 +646,10 @@
 	    </Item>
 	</Item>
   </Item>
-  <Item name="Uterine::Revision" type="group">
+  <Item name="Uterine::Revision::Group" type="group">
 	  <column>2</column>
 	  <label>Révision utérine : </label>
-     <Item name="" type="combo">
+     <Item name="Uterine::Revision" type="combo">
          <value>
           <possible id="0">Oui</possible>
           <possible id="1">Non</possible>
@@ -646,7 +657,7 @@
           <uuid id="1">Non</uuid>       
          </value>
 	 </Item>
-  	 <Item name="Cause" type="group">
+  	 <Item name="Uterine::Revision::Cause" type="group">
   		<options>collapsible</options>
   		<label>Cocher ici si Révision utérine :</label>
   	    <Item name="" type="combo">
@@ -664,9 +675,9 @@
   	    </Item>
   	 </Item>
   </Item>
-  <Item name="Perinea" type="group">
+  <Item name="Uterine::Revision::Perinea::Group" type="group">
 	  <label>Périnée : </label>
-      <Item name="" type="combo">
+      <Item name="Uterine::Revision::Perinea" type="combo">
          <value>
           <possible id="0">intact</possible>
           <possible id="1">éraillée</possible>
@@ -680,25 +691,25 @@
           <uuid id="0">EULD</uuid>    
          </value>
 	  </Item>
-   <Item name="" type="group">
-  	<Item name="Degree" type="group">
+   <Item name="Uterine::Revision:Degree::Group" type="group">
+  	<Item name="Uterine::Revision::Degree" type="group">
 		<label>degré :</label>
   		<options>collapsible</options>
   		<label>Cocher ici si PD :</label>
-  	    <Item name="" type="spin">
+  	    <Item name="Uterine::Revision::Degree::number" type="spin">
   	    </Item>
   	</Item>
-  	<Item name="Provider::Name" type="group">
+  	<Item name="Provider::Name::EULD" type="group">
 		<label>Nom de l'Opérateur :</label>
   		<options>collapsible</options>
   		<label>Cocher ici sis EULG ou EULD :</label>
-  	    <Item name="" type="shorttext">
+  	    <Item name="Provider::Name::EULD::Text" type="shorttext">
   	    </Item>
   	</Item>
    </Item>
   </Item>
   <Item name="Data::per::newborn" type="group">
-	  <label>Infos nouveaux-nés : colonnes pour chaque bébé à dvper</label>
+	  <label>Infos nouveaux-nés : créer une épisode pour chaque bébé </label>
 	  <Item name="Amniotic::Liquid" type="combo">
 		  <label options="labelontop">Liquide amniotique :</label>
 		  <value>
@@ -734,12 +745,12 @@
 			  <uuid id="2">écharpe</uuid>
 		  </value>
 	     </Item>
-		 <Item name="" type="group">
-		  <Item name="YES" type="group">
+		 <Item name="Circular::Presence::Yes::Group" type="group">
+		  <Item name="Circular::Presence::YES" type="group">
 			 <column>1</column>
 			 <options>collapsible</options>
 			 <label>cocher ici si présence de circulaire OUI</label>
-		     <Item name="" type="combo">
+		     <Item name="Circular::Presence::Yes::Choice" type="combo">
 			   <value>
 		          <possible id="0">simple</possible>
 		          <possible id="1">double</possible>
@@ -748,11 +759,11 @@
 			   </value>
 		     </Item>
 		  </Item>
-		  <Item name="Echarpe" type="group">
+		  <Item name="Echarpe::Group" type="group">
 			 <options>collapsible</options>
 			 <column>1</column>
 			 <label>cocher ici si présence de circulaire Echarpe</label>
-		     <Item name="" type="combo">
+		     <Item name="Echarpe" type="combo">
 			   <value>
 		          <possible id="0">serré</possible>
 		          <possible id="1">lâche</possible>
@@ -770,7 +781,7 @@
 		  <label>Poids de naissance (Kg):</label>
 		  <default>Kg</default>
 	  </Item>
-	  <Item name="Sex" type="combo">
+	  <Item name="New::Born::Sex" type="combo">
 		   <label>Sexe : </label>
 		   <value>
 		     <possible id="0">F</possible>
@@ -782,22 +793,22 @@
 	  <Item name="Apgar::Indice" type="group">
 		  <label>Indice d'Apgar :</label>
 	
-		  <Item name="M1" type="group">
+		  <Item name="M1::Group" type="group">
 			  <options>collapsible</options>
 			  <label>M1</label>
-			  <Item name="" type="spin">
+			  <Item name="M1" type="spin">
 			  </Item>
 		  </Item>
-		  <Item name="M5" type="group">
+		  <Item name="M5::Group" type="group">
 			  <options>collapsible</options>
 			  <label>M5</label>
-			  <Item name="" type="spin">
+			  <Item name="M5" type="spin">
 			  </Item>
 		  </Item>
-		  <Item name="M10" type="group">
+		  <Item name="M10::Group" type="group">
 			  <options>collapsible</options>
 			  <label>M10</label>
-			  <Item name="" type="spin">
+			  <Item name="M10" type="spin">
 			  </Item>
 		  </Item>
 	  </Item>
@@ -811,9 +822,9 @@
 		   </value>
 	  </Item>
   </Item>
-  <Item name="Complication" type="group">
+  <Item name="Delivery::Complication::Group" type="group">
 		  <label>Complications : </label>
-	      <Item name="" type="combo">
+	      <Item name="Delivery::Complication" type="combo">
 		   <value>
 		     <possible id="0">pas de complications</possible>
 		     <possible id="1">hémorragie</possible>
@@ -823,12 +834,12 @@
 			 <uuid id="0">thrombus vulvo-vaginale</uuid> 
 		   </value>
 	      </Item>
-	      <Item name="" type="shorttext">
+	      <Item name="Delivery::Complication::Text" type="shorttext">
 		  </Item>
-	      <Item name="Hemmoragy" type="group">
+	      <Item name="Delivery::Complication::Hemmoragy" type="group">
 		     <label>Cocher ici si Hémorragie</label>
 		     <options>collapsible</options>
-	         <Item name="Etiology" type="combo">
+	         <Item name="Delivery::Complication::Etiology" type="combo">
 		       <value>
 		        <possible id="0">atonie utérine</possible>
 		        <possible id="1">déchirure cervicale</possible>
@@ -836,9 +847,9 @@
 		        <uuid id="1">déchirure cervicale</uuid>
 		       </value>
 	         </Item>
-		     <Item name="Etiology" type="shorttext">
+		     <Item name="Delivery::Complication::Etiology::Text" type="shorttext">
 			 </Item>
-		     <Item name="Treatment" type="combo">
+		     <Item name="Delivery::Complication::Treatment" type="combo">
 			       <value>
 			        <possible id="0">traitement médicamenteux</possible>
 			        <possible id="1">traitement chirurgical conservateur</possible>
@@ -848,17 +859,17 @@
 			        <uuid id="0">hystérectomie d'hémostase</uuid>
 			       </value>
 		     </Item>
-			 <Item name="Treatment" type="shorttext">
-			  </Item>	  	 
+			 <Item name="Delivery::Complication::Treatment::Text" type="shorttext">
+			 </Item>	  	 
 		  </Item>  
-	  </Item>
+  </Item>
   <Item name="Postnatal::Prescription" type="group">
 		  <label>Prescription postnatal :</label>	
-		  <Item name="Antibiotherapy" type="group">
+		  <Item name="Postnatal::Prescription::Antibiotherapy::MainGroup" type="group">
 			  <options>collapsible</options>
 			  <label>Antibiothérapie</label>
-			  <Item name="" type="group">
-				  <Item name="Posology" type="combo">
+			  <Item name="Postnatal::Prescription::Antibiotherapy::SubGroup" type="group">
+				  <Item name="Postnatal::Prescription::Antibiotherapy::Posology" type="combo">
 					  <label>Posologie :</label>
 		   		   <value>
 		   		     <possible id="0">amoxicilline 3g par jour</possible>
@@ -867,53 +878,53 @@
 		   		     <uuid id="1">erythromycine 2g par jour</uuid>    
 		   		   </value> 
 				  </Item>
-				  <Item name="Treatment duration" type="shorttext">
+				  <Item name="Postnatal::Prescription::Antibiotherapy::Treatment::duration" type="shorttext">
 					  <label>Duréee traitement></label>
 				  </Item>
 			  </Item>
 		  </Item>
-		  <Item name="Calcium" type="group">
+		  <Item name="Postnatal::Prescription::Antibiotherapy::Calcium::MainGroup" type="group">
 			  <options>collapsible</options>
 			  <label>Calcium</label>
-			  <Item name="" type="group">
-				  <Item name="Posology" type="shorttext">
+			  <Item name="Postnatal::Prescription::Antibiotherapy::Calcimum::SubGroup" type="group">
+				  <Item name="Postnatal::Prescription::Antibiotherapy::Posology" type="shorttext">
 					  <label>Psologie :</label>
 				  </Item>
-				  <Item name="Treatment duration" type="shorttext">
+				  <Item name="Postnatal::Prescription::Antibiotherapy::Treatmen::Duration" type="shorttext">
 					 <label>Duréee traitement :</label>  
 				  </Item>
 			  </Item>
 		  </Item>
-		  <Item name="Betadine::Gynecology" type="group">
+		  <Item name="Betadine::Gynecology::MainGroup" type="group">
 			  <options>collapsible</options>
 			  <label>Bétadine Gynécologique</label>
-			  <Item name="" type="group">
-				  <Item name="" type="group">
-					  <Item name="Posology" type="shorttext">
+			  <Item name="Betadine::Gynecology::SubGroup" type="group">
+				  <Item name="Betadine::Gynecology::Subgroup::One" type="group">
+					  <Item name="Betadine::Gynecology::Posology" type="shorttext">
 						  <label>Psologie :</label>
 					  </Item>
-					  <Item name="Treatment duration" type="shorttext">
+					  <Item name="Betadine::Gynecology::Treatment::duration" type="shorttext">
 						 <label>Duréee traitement :</label>  
 					  </Item>
 				  </Item>
 			  </Item>
 		  </Item>
-		  <Item name="Autres" type="group">
+		  <Item name="Postnatal::Prescription::Others::MainGroup" type="group">
 			  <options>collapsible</options>
 			  <label>Autres</label>
-			  <Item name="" type="group">
-				  <Item name="" type="group">
-					  <Item name="Posology" type="shorttext">
+			  <Item name="Postnatal::Prescription::Others::SubGroup" type="group">
+				  <Item name="Postnatal::Prescription::Others::SubGroup::One" type="group">
+					  <Item name="Postnatal::Prescription::Others::Posology" type="shorttext">
 						  <label>Psologie :</label>
 					  </Item>
-					  <Item name="Treatment duration" type="shorttext">
+					  <Item name="Postnatal::Prescription::Others::Treatment::duration" type="shorttext">
 						 <label>Duréee traitement :</label>  
 					  </Item>
 				  </Item>
 			  </Item>
 		  </Item>
   </Item>
-	  <Item name="Counseling" type="combo">
+  <Item name="Counseling" type="combo">
 	   <label>Counseling : </label>
 	   <options>labelontop</options>
 	   <value>
@@ -924,11 +935,11 @@
 	     <uuid id="1">soin du périnée</uuid>
 	     <uuid id="3">levée après 6 heures</uuid>    
 	   </value> 
-      </Item>
-	  <Item name="Malformation" type="group">
+  </Item>
+  <Item name="Malformation" type="group">
 		  <label>Présence malformation : </label>
 		  <column>2</column>
-	      <Item name="Presence" type="combo">
+	      <Item name="Malformation::Presence" type="combo">
 		   <value>
 		     <possible id="0">Oui</possible>
 		     <possible id="1">Non</possible>
@@ -936,30 +947,30 @@
 		     <uuid id="1">Non</uuid> 
 		   </value>
 	      </Item>
-	      <Item name="Type" type="group">
+	      <Item name="Malformation::Type::MainGroup" type="group">
 		     <label>Cocher ici si Malformation</label>
 		     <options>collapsible</options>
-		     <Item name="" type="shorttext">
+		     <Item name="Malformation::Type" type="shorttext">
 				 <label>Type de malformation :</label>
 			 </Item>	 
 		  </Item>  
-	  </Item> 
+  </Item> 
 	  <Item name="Transfer::Primary" type="group">
 		  <column>2</column>
 		  <label>Transfert en néo-nat dans le post partum immédiat : </label>
-	      <Item name="" type="combo">
+	    <Item name="Transfer::Primary::Choice" type="combo">
 		   <value>
 		     <possible id="0">Oui</possible>
 		     <possible id="1">Non</possible>
 		     <uuid id="0">Oui</uuid>
 		     <uuid id="1">Non</uuid> 
 		   </value>
-	      </Item>
-	      <Item name="" type="group">
-		     <Item name="motif" type="shorttext">
+	    </Item>
+	    <Item name="Transfer::Primary::Choice::Group" type="group">
+		     <Item name="Transfer::Primary::Motif" type="shorttext">
 				 <label>Motif de transfert :</label>
 			 </Item>
-		     <Item name="Exit::Disgnosis" type="shorttext">
+		     <Item name="Transfer::Primary::Exit::Disgnosis" type="shorttext">
 				 <label>Disgnostic de sortie :</label>
 			 </Item>	
 		  </Item>  
@@ -967,7 +978,7 @@
 	  <Item name="Transfer::Secondary" type="group">
 		  <label>Transfert secondaire en néo-nat  : </label>
 		  <column>2</column>
-	      <Item name="" type="combo">
+	      <Item name="Transfer::Secondary::Choice" type="combo">
 		   <value>
 		     <possible id="0">Oui</possible>
 		     <possible id="1">Non</possible>
@@ -975,11 +986,11 @@
 		     <uuid id="1">Non</uuid> 
 		   </value>
 	      </Item>
-	      <Item name="" type="group">
-		     <Item name="motif" type="shorttext">
+	      <Item name="Transfer::Secondary::Group" type="group">
+		     <Item name="Transfer::Secondary::motif" type="shorttext">
 				 <label>Motif de transfert :</label>
 			 </Item>
-		     <Item name="Exit::Disgnosis" type="shorttext">
+		     <Item name="Transfer::Secondary::Exit::Disgnosis" type="shorttext">
 				 <label>Disgnostic de sortie :</label>
 			 </Item>	
 		  </Item>  
@@ -1003,19 +1014,19 @@
   <bibliography lang="fr">""</bibliography>
   <license lang="fr">Termes de la license</license>
   <options>UseFormNameAsNameSpace</options>
-  <Item name="Motif::Consultation" type="shorttext">
+  <Item name="Maternity::Obstetrics::Postnatal::Followup::Motif::Consultation" type="shorttext">
       <label>Motif de la consultation</label>
   </Item>
-  <Item name="Blood::Pressure" type="shorttext">
+  <Item name="Maternity::Obstetrics::Postnatal::Followup::Blood::Pressure" type="shorttext">
       <label>TA :</label>
   </Item>
-  <Item type="measurement" name="Weight">
+  <Item type="measurement" name="Maternity::Obstetrics::Postnatal::Followup::Weight">
       <label lang="xx">Weight (kg)</label>
       <label lang="fr">Poids (kg)</label>
       <options>DontPrintEmptyValues;Weight</options>
-      <default>Kilogramme(s)</default>
+      <default>kilogram</default>
   </Item>
-  <Item name="Breast::feeding" type="combo">
+  <Item name="Maternity::Obstetrics::Postnatal::Followup::Breast::feeding" type="combo">
    <label>Mode d'allaitement : </label>
    <value>
      <possible id="0">AME</possible>
@@ -1024,8 +1035,8 @@
      <uuid id="1">Artificel</uuid>       
    </value>
   </Item>
-  <Item name="Retour::Couche" type="group">
-     <Item name="" type="combo">
+  <Item name="Maternity::Obstetrics::Postnatal::Followup::Retour::Couche::Group" type="group">
+     <Item name="Maternity::Obstetrics::Postnatal::Followup::Retour::Couche::Choice" type="combo">
        <label>Retour de couches : </label>
       <value>
         <possible id="0">Oui</possible>
@@ -1034,17 +1045,17 @@
         <uuid id="1">Non</uuid>       
       </value>
      </Item>
-     <Item type="group" name="Date::Entry">
+     <Item type="group" name="Maternity::Obstetrics::Postnatal::Followup::Date::Entry">
 	  <options>collapsible</options>
 	  <label>Cocher ici seulement si OUI</label>
-	  <Item type="Date" name="Date">
+	  <Item name="Maternity::Obstetrics::Postnatal::Followup::Retour::Couche::Date" type="Date">
 		  <label>Date :</label>
 	  </Item>
      </Item>
   </Item>
-  <Item type="group" name="Suite::Couche">
+  <Item type="group" name="Maternity::Obstetrics::Postnatal::Followup::Suite::Couche">
 	 <label>Suite de couches : </label>  
-    <Item name="" type="combo">
+    <Item name="Maternity::Obstetrics::Postnatal::Followup::Suite::Couche::Choice" type="combo">
 	  <value>
         <possible id="0">Normale</possible>
         <possible id="1">Pathologique</possible>
@@ -1052,13 +1063,13 @@
         <uuid id="1">Pathologique</uuid>       
       </value>
     </Item>
-    <Item name="" type="group">
+    <Item name="Maternity::Obstetrics::Postnatal::Followup::Couche::Pathologique" type="group">
 	   <label>Si Suite Souce = Pathologique</label>
 	   <options>collapsible</options>
-       <Item type="group" name="Complication::Allaitement">
+       <Item type="group" name="Maternity::Obstetrics::Postnatal::Followup::Complication::Allaitement">
 		<options>collapsible</options>
 		<label>Complication de l'allaitement :(Si Pathologique)</label>
-  	    <Item type="multilist" name="">
+  	    <Item type="multilist" name="Maternity::Obstetrics::Postnatal::Followup::Complication::Allaitement::Choice">
            <label options="labelontop" lang="xx"></label>
            <label options="labelontop" lang="fr"></label>
   	       <value>
@@ -1072,14 +1083,14 @@
   	       <uuid id="3">Crevasse</uuid>
   	     </value>
 	    </Item>
-		<Item type="shorttext" name="">
+		<Item type="shorttext" name="Maternity::Obstetrics::Postnatal::Followup::Complication::Allaitement::Text">
 	        <label>Saisie Texte</label>
 	    </Item>
        </Item>		
        <Item type="group" name="Infection::Puerperale">
 		<options>collapsible</options>
 		<label>Infection puerpérale :(Si Pathologique)</label>
-  	    <Item type="multilist" name="">
+  	    <Item type="multilist" name="Maternity::Obstetrics::Postnatal::Followup::Infection::Puerperale::choice">
            <label options="labelontop" lang="xx"></label>
            <label options="labelontop" lang="fr"></label>
   	       <value>
@@ -1101,14 +1112,14 @@
   	       <uuid id="7">Abcès Douglas</uuid>
   	     </value>
 	    </Item>
-		<Item type="shorttext" name="">
+		<Item type="shorttext" name="Infection::Puerperale::Text">
 	      <label>Saisie Texte</label>
 	    </Item>
        </Item>		
        <Item type="group" name="Complication::Thromboembolique">
 		<options>collapsible</options>
 		<label>Complication thromboembolique :(Si Pathologique)</label>
-  	    <Item type="multilist" name="">
+  	    <Item type="multilist" name="Complication::Thromboembolique::Choice">
            <label options="labelontop" lang="xx"></label>
            <label options="labelontop" lang="fr"></label>
   	       <value>
@@ -1118,14 +1129,14 @@
   	       <uuid id="1">Embolie pulmonaire</uuid>
   	     </value>
 	    </Item>
-		<Item type="shorttext" name="">
+		<Item type="shorttext" name="Complication::Thromboembolique::Text">
 	     <label>Saisie Texte</label>
 	    </Item>
        </Item>
        <Item type="group" name="Complication::Psychiatrique">
   		<options>collapsible</options>
   		<label>Complication psychiatrique :(Si Pathologique)</label>
-    	<Item type="multilist" name="">
+    	<Item type="multilist" name="Complication::Psychiatrique::Choice">
              <label options="labelontop" lang="xx"></label>
              <label options="labelontop" lang="fr"></label>
     	       <value>
@@ -1135,14 +1146,14 @@
     	       <uuid id="1">Psychoses puerpérales</uuid>
     	     </value>
   	    </Item>
-  		<Item type="shorttext" name="">
+  		<Item type="shorttext" name="Complication::Psychiatrique::Text">
   	     <label>Saisie Texte</label>
   	    </Item>
        </Item>
        <Item type="group" name="Complication::Autres">
   		<options>collapsible</options>
   		<label>Autres :(Si Pathologique)</label>
-  		<Item type="shorttext" name="">
+  		<Item type="shorttext" name="Complication::Autres::Text">
   	     <label>Saisie Texte</label>
   	    </Item>
        </Item>
@@ -1150,7 +1161,7 @@
   </Item>
   <Item type="group" name="Counseling">
 	 <label>Counseling : </label>  
-    <Item name="" type="multilist">
+    <Item name="Counseling::Choice" type="multilist">
 		<label>Choix multiples</label>
 	  <value>
         <possible id="0">Contraception</possible>
@@ -1168,7 +1179,7 @@
 	<Item type="group" name="Proposal::Contraception::Type">
 		<label>Contraception fait partie des choix, Cocher ici</label>
 		<options>collapsible</options>
-		<Item type="combo" name="">
+		<Item type="combo" name="Proposal::Contraception::Type::Choice">
 			<label>Type de contraception proposée :</label>
 			<value>
              <possible id="0">Pilule</possible>
@@ -1184,14 +1195,14 @@
 		<Item type="group" name="Drugs:name">
 			<options>collapsible</options>
 			<label>Cocher si Pilule</label>
-			<Item type="shorttext" name="">
+			<Item type="shorttext" name="Drugs:name::Text">
 				<label>Nom du médicament proposée :</label>
 			</Item>
 		</Item>
 	</Item>
   </Item>
   <Item type="group" name="Frottis::Depistage">
-		<Item type="combo" name="">
+		<Item type="combo" name="Frottis::Depistage::Choice">
 			<label>Frottis de dépistage :</label>
 			<value>
              <possible id="0">Prescrit</possible>
@@ -1200,19 +1211,19 @@
              <uuid id="1">Non prescrit</uuid>
 		   </value>
 	    </Item>
-		<Item type="group" name="Results">
+		<Item type="group" name="Frottis::Depistage::Results">
 			<options>collapsible</options>
 			<label>Cocher si Prescrit</label>
-			<Item type="shorttext" name="">
+			<Item type="shorttext" name="Frottis::Depistage::Results::Text">
 				<label>Résultats :</label>
 			</Item>
 			<Item type="group" name="Dernier::Frottis">
 				<column>2</column>
 				<label>Dernier frottis</label>
-			    <Item type="date" name="Date">
+			    <Item type="Dernier::Frottis::Date" name="Date">
 				   <label>Date :</label>
 			    </Item>
-			    <Item type="shorttext" name="Results">
+			    <Item type="shorttext" name="Dernier::Frottis::Results">
 					<label>Résultats</label>
 				</Item>
 			</Item>
@@ -1221,13 +1232,13 @@
   <Item type="group" name="Autres::Examen::Prescrits">
 	    <column>2</column>
 		<label>Autres examens prescrits</label>
-		<Item type="shorttext" name="">
+		<Item type="shorttext" name="Autres::Examen::Prescrits::Text">
 		</Item>
-		<Item type="shorttext" name="Results">
+		<Item type="shorttext" name="Autres::Examen::Prescrits::Results">
 			  <label>Résultats :</label>
 		</Item>
   </Item>
-  <Item type="longtext" name="Prescription">
+  <Item type="longtext" name="Autres::Examen::Prescrits::Prescription">
 	  <label>Prescription :</label>
   </Item>
 </MedForm>
@@ -1238,9 +1249,5 @@
   <options>NoEpisode;DontPrintEmptyValues</options>
   <file>__subForms__/maternity/obstetrics/ultrasound/central.xml</file>
 </MedForm>   
-<<<<<<< HEAD
 </FreeMedForms>
-=======
-</FreeMedForm
 
->>>>>>> origin/master

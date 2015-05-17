@@ -22,12 +22,12 @@
   <specialties lang="fr">Consultation</specialties>
   <specialties lang="xx">Consultation</specialties>
   </formdescription>
-  <options>NoEpisdode;UseFormNameAsNameSpace;DontPrintEmptyValues</options> 
   <MedForm type="form" name="Maternity::PMHx::Perso::Gyneco::Obstetric">
+        <options>Unique;UseFormNameAsNameSpace</options>
         <label lang="xx">Gynecology PMHx</label>
         <label lang="fr">ATCD Gyneco</label> 
-       <Item type="group" name="Gynecology">
-           <options>collapsible</options>
+    <Item type="group" name="Group::Gynecology">
+           <options>collapsible;expanded</options>
            <label lang="xx">Gynecology PMHx</label>
            <label lang="fr">Antécédents Gynécologiques :</label>
            <Item type="shorttext" name="Menarche">
@@ -71,7 +71,7 @@
                  <uuid id="3">DIU</uuid>
    		      <uuid id="4">Implanon</uuid>
      	        </value>
-        </Item>
+           </Item>
            <Item type="shorttext" name="Contraception::Text">
      	     <label lang="xx">Contraception :</label>
      	     <label lang="fr">Contraception :</label>
@@ -88,19 +88,23 @@
 		   		 <label lang="fr">Nombre d'enfants vivants :</label>
 		   	     <label lang="xx">Number of childs alive :</label>
 		   </Item> 
-	   </Item>
- 	   <Item type="group" name="Parity">
- 		   <options>collapsible</options>
- 		   <label lang="fr">Nombre de parité</label>
-		   <label lang="xx">Nombre de parité</label>
-	    
- 		   <Item type="date" name="Year">
+    </Item>
+    <Item type="group" name="Group::Parity">
+		<label lang="fr">Accouchement(s) antérieur(s)</label>
+		<label lang="xx">Previous Delivery</label>
+		<Item type="group" name="">
+ 		   <options>checkable</options>
+ 		   <label lang="fr">Dernier Accouchement</label>
+		   <label lang="xx">Previous Delivery</label>
+ 		   <Item type="date" name="Previous::Delivery::Year">
+			   <dateformat>yyyy</dateformat>
+			   <options>patientlimits;now</options>
 			   <label lang="xx">Year</label>
  			   <label lang="fr">Année</label>
  		   </Item>
  		   <Item type="shorttext" name="Place::of::delivery">
-			   <label lang="xx">Year</label>
- 			   <label lang="fr">Année</label>
+			   <label lang="xx">Place of Delivery</label>
+ 			   <label lang="fr">Lieu d'accouchement</label>
  		   </Item>
  		   <Item type="measurement" name="Weight">
 		         <options>DontPrintEmptyValues;weight</options>
@@ -142,7 +146,7 @@
 			   <options>collapsible</options>
 	 		   <label lang="fr">Cocher seulement si Mode accouchement OCU ou OCP</label>
 			   <label lang="xx">Checl if only OCU or OCP</label>
-			   <Item type="shorttext" name="Text">
+			   <Item type="shorttext" name="Cesarien::Motif::Text">
 			   </Item>   
 		   </Item>
 		   <Item type="multilist" name="Pathology">
@@ -173,31 +177,406 @@
 	 		   <label lang="fr">Mortalité périnatale</label>
 			   <label lang="xx">Perinatal mortality</label>
 			   <options>collapsible</options>
-			   <Item type="longtext" name="Exam">
+			   <Item type="longtext" name="Perinatal::Mortality::Exam">
 		 		   <label lang="fr">Diagnostic Mortalité périnatale</label>
 				   <label lang="xx">Perinatality exam</label>
 			   </Item>
 		   </Item>
-	
- 	   </Item>
-	   <Item type="group" name="Pregnancy::interrupted">
-		   <options>collapsible</options>
-		   <label lang="fr">Grossesse interrompue</label>
-		   <label lang="xx">Grossesse interrompue</label>
-		  
-			   <Item type="spin" name="Number">
+		</Item>
+ 	    <Item type="group" name="Group::Parity::Others">
+ 		    <options>collapsible</options>
+ 		    <label lang="fr">Cliquer ici si Autres Accouchements antérieurs limités au 5ème</label>
+		    <label lang="xx">Previous Delivery</label>
+	        <Item type="group" name="Group::Parity::1">
+ 		       <options>collapsible</options>
+ 		       <label lang="fr">Autre Accouchement antérieur 1 </label>
+		       <label lang="xx">Previous Delivery</label>
+ 		       <Item type="date" name="Parity::1::Year">
+                 <default>year</default>
+			     <options>now;patientLimits</options>
+			     <label lang="xx">Year</label>
+ 			     <label lang="fr">Année</label>
+ 		       </Item>
+ 		       <Item type="shorttext" name="Parity::1::Place::of::delivery">
+			     <label lang="xx">Place of Delivery</label>
+ 			     <label lang="fr">Lieu d'accouchement</label>
+ 		       </Item>
+ 		       <Item type="measurement" name="Parity::1::Weight">
+		         <options>DontPrintEmptyValues;weight</options>
+		         <default>kg</default>
+			     <label lang="xx">Weight (Kg)</label>
+ 			     <label lang="fr">Poids (Kg)</label>
+ 		       </Item>
+		       <Item type="combo" name="Parity::1::Sex">
+			    <label lang="xx">Sex</label>
+ 			    <label lang="fr">Sexe</label>
+			    <value>
+			        <possible id="0">Masculin</possible>
+			        <possible id="1">Féminin</possible>
+			        <possible id="2">Transgender</possible>
+			        <uuid id="0">Masculin</uuid>
+			        <uuid id="1">Féminin</uuid>
+			        <uuid id="2">Transgender</uuid>
+    	         </value>
+		       </Item>
+		       <Item type="shorttext" name="Parity::1::Amnenorhea::Week">
+	 		       <label lang="fr">Semaine amnénorrhée</label>
+			       <label lang="xx">Amnenorrhea Week</label>
+		       </Item>
+		       <Item type="combo" name="Parity::1::Delivery::Mode">
+			       <label lang="xx">Delivery mode</label>
+ 			       <label lang="fr">Mode d'accouchement'</label>
+			       <value>
+			        <possible id="0">AVB</possible>
+			        <possible id="1">AVB avec instruments</possible>
+			        <possible id="2">OCU</possible>
+					<possible id="3">OCP</possible>
+			        <uuid id="0">AVB</uuid>
+			        <uuid id="1">AVB avec instruments</uuid>
+			        <uuid id="2">OCU</uuid>
+					<uuid id="3">OCP</uuid>
+    	           </value>
+		       </Item>
+		       <Item type="group" name="Group::Parity::1::Cesarien::Motif">
+			      <options>collapsible</options>
+	 		      <label lang="fr">Cocher seulement si Mode accouchement OCU ou OCP</label>
+			      <label lang="xx">Checl if only OCU or OCP</label>
+			      <Item type="shorttext" name="Parity::1::Cesarien::Motif::Text">
+			      </Item>   
+		       </Item>
+		       <Item type="multilist" name="Parity::1::Pathology">
+			      <label lang="fr">Pathology </label>
+			      <label lang="xx">Pathologie </label>
+		          <value>
+		            <possible id="0">MFCS</possible>
+		            <possible id="1">MAP</possible>
+		            <possible id="2">HTA</possible>
+		            <possible id="3">DIABETE</possible>
+					<possible id="4">RCIU</possible>
+					<possible id="5">MIU</possible>
+		            <uuid id="0">MFCS</uuid>
+		            <uuid id="1">MAP</uuid>
+		            <uuid id="2">HTA</uuid>
+		            <uuid id="3">DIABETE</uuid>
+					<uuid id="4">RCIU</uuid>
+					<uuid id="5">MIU</uuid>
+		          </value>
+				  <Item type="shorttext" name="Parity::1::Pathology::Text">
+				  </Item>
+		       </Item>
+		       <Item type="shorttext" name="Parity::1::Malformation">
+	 		     <label lang="fr">Malformation</label>
+			     <label lang="xx">Malformation</label>
+		       </Item>
+		       <Item type="group" name="Group::Parity::1::Perinatal::Mortality">
+	 		       <label lang="fr">Mortalité périnatale</label>
+			       <label lang="xx">Perinatal mortality</label>
+			       <options>collapsible</options>
+			       <Item type="longtext" name="Parity::1::Perinatal::Mortality::Exam">
+		 		      <label lang="fr">Diagnostic Mortalité périnatale</label>
+				      <label lang="xx">Perinatality exam</label>
+			       </Item>
+		       </Item>
+ 	        </Item>
+		    <Item type="group" name="Group::Parity::2">
+ 		      <options>collapsible</options>
+ 		      <label lang="fr">Autre Accouchement antérieur 2</label>
+		      <label lang="xx">Previous Delivery</label>
+
+ 		      <Item type="date" name="Parity::2::Year">
+               <default>year</default>
+			   <options>now;patientLimits</options>
+			   <label lang="xx">Year</label>
+ 			   <label lang="fr">Année</label>
+ 		      </Item>
+ 		      <Item type="shorttext" name="Parity::2::Place::of::delivery">
+			   <label lang="xx">Place of Delivery</label>
+ 			   <label lang="fr">Lieu d'accouchement</label>
+ 		      </Item>
+ 		      <Item type="measurement" name="Parity::2::Weight">
+		         <options>DontPrintEmptyValues;weight</options>
+		         <default>kg</default>
+			   <label lang="xx">Weight (Kg)</label>
+ 			   <label lang="fr">Poids (Kg)</label>
+ 		      </Item>
+		      <Item type="combo" name="Parity::2::Sex">
+			   <label lang="xx">Sex</label>
+ 			   <label lang="fr">Sexe</label>
+			   <value>
+			        <possible id="0">Masculin</possible>
+			        <possible id="1">Féminin</possible>
+			        <possible id="2">Transgender</possible>
+			        <uuid id="0">Masculin</uuid>
+			        <uuid id="1">Féminin</uuid>
+			        <uuid id="2">Transgender</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="shorttext" name="Parity::2::Amnenorhea::Week">
+	 		    <label lang="fr">Semaine amnénorrhée</label>
+			    <label lang="xx">Amnenorrhea Week</label>
+		      </Item>
+		      <Item type="combo" name="Parity::2::Delivery::Mode">
+			   <label lang="xx">Delivery mode</label>
+ 			   <label lang="fr">Mode d'accouchement'</label>
+			   <value>
+			        <possible id="0">AVB</possible>
+			        <possible id="1">AVB avec instruments</possible>
+			        <possible id="2">OCU</possible>
+					<possible id="3">OCP</possible>
+			        <uuid id="0">AVB</uuid>
+			        <uuid id="1">AVB avec instruments</uuid>
+			        <uuid id="2">OCU</uuid>
+					<uuid id="3">OCP</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="group" name="Group::Parity::2::Cesarien::Motif">
+			   <options>collapsible</options>
+	 		   <label lang="fr">Cocher seulement si Mode accouchement OCU ou OCP</label>
+			   <label lang="xx">Checl if only OCU or OCP</label>
+			   <Item type="shorttext" name="Parity::2::Cesarien::Motif::Text">
+			   </Item>   
+		      </Item>
+		      <Item type="multilist" name="Parity::2::Pathology">
+			     <label lang="fr">Pathology </label>
+			     <label lang="xx">Pathologie </label>
+		          <value>
+		            <possible id="0">MFCS</possible>
+		            <possible id="1">MAP</possible>
+		            <possible id="2">HTA</possible>
+		            <possible id="3">DIABETE</possible>
+					<possible id="4">RCIU</possible>
+					<possible id="5">MIU</possible>
+		            <uuid id="0">MFCS</uuid>
+		            <uuid id="1">MAP</uuid>
+		            <uuid id="2">HTA</uuid>
+		            <uuid id="3">DIABETE</uuid>
+					<uuid id="4">RCIU</uuid>
+					<uuid id="5">MIU</uuid>
+		          </value>
+				  <Item type="shorttext" name="Pathology::Text">
+				  </Item>
+		      </Item>
+		      <Item type="shorttext" name="Parity::2::Malformation">
+	 		   <label lang="fr">Malformation</label>
+			   <label lang="xx">Malformation</label>
+		      </Item>
+		      <Item type="group" name="Group::Parity::2::Perinatal::Mortality">
+	 		   <label lang="fr">Mortalité périnatale</label>
+			   <label lang="xx">Perinatal mortality</label>
+			   <options>collapsible</options>
+			   <Item type="longtext" name="Parity::2::Perinatal::Mortality::Exam">
+		 		   <label lang="fr">Diagnostic Mortalité périnatale</label>
+				   <label lang="xx">Perinatality exam</label>
+			   </Item>
+		      </Item>
+ 	        </Item>
+		    <Item type="group" name="Group::Parity::3">
+ 		      <options>collapsible</options>
+ 		      <label lang="fr">Autre Accouchement antérieur 3</label>
+		      <label lang="xx">Previous Delivery</label>
+
+ 		      <Item type="date" name="Parity::3::Year">
+               <default>year</default>
+			   <options>now;patientLimits</options>
+			   <label lang="xx">Year</label>
+ 			   <label lang="fr">Année</label>
+ 		      </Item>
+ 		      <Item type="shorttext" name="Parity::3::Place::of::delivery">
+			   <label lang="xx">Place of Delivery</label>
+ 			   <label lang="fr">Lieu d'accouchement</label>
+ 		      </Item>
+ 		      <Item type="measurement" name="Parity::3::Weight">
+		         <options>DontPrintEmptyValues;weight</options>
+		         <default>kg</default>
+			   <label lang="xx">Weight (Kg)</label>
+ 			   <label lang="fr">Poids (Kg)</label>
+ 		      </Item>
+		      <Item type="combo" name="Parity::3::Sex">
+			   <label lang="xx">Sex</label>
+ 			   <label lang="fr">Sexe</label>
+			   <value>
+			        <possible id="0">Masculin</possible>
+			        <possible id="1">Féminin</possible>
+			        <possible id="2">Transgender</possible>
+			        <uuid id="0">Masculin</uuid>
+			        <uuid id="1">Féminin</uuid>
+			        <uuid id="2">Transgender</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="shorttext" name="Parity::3::Amnenorhea::Week">
+	 		   <label lang="fr">Semaine amnénorrhée</label>
+			   <label lang="xx">Amnenorrhea Week</label>
+		      </Item>
+		      <Item type="combo" name="Parity::3::Delivery::Mode">
+			   <label lang="xx">Delivery mode</label>
+ 			   <label lang="fr">Mode d'accouchement'</label>
+			   <value>
+			        <possible id="0">AVB</possible>
+			        <possible id="1">AVB avec instruments</possible>
+			        <possible id="2">OCU</possible>
+					<possible id="3">OCP</possible>
+			        <uuid id="0">AVB</uuid>
+			        <uuid id="1">AVB avec instruments</uuid>
+			        <uuid id="2">OCU</uuid>
+					<uuid id="3">OCP</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="group" name="Group::Parity::3::Cesarien::Motif">
+			   <options>collapsible</options>
+	 		   <label lang="fr">Cocher seulement si Mode accouchement OCU ou OCP</label>
+			   <label lang="xx">Checl if only OCU or OCP</label>
+			   <Item type="shorttext" name="Parity::3::Cesarien::Motif::Text">
+			   </Item>   
+		      </Item>
+		      <Item type="multilist" name="Parity::3::Pathology">
+			    <label lang="fr">Pathology </label>
+			    <label lang="xx">Pathologie </label>
+		          <value>
+		            <possible id="0">MFCS</possible>
+		            <possible id="1">MAP</possible>
+		            <possible id="2">HTA</possible>
+		            <possible id="3">DIABETE</possible>
+					<possible id="4">RCIU</possible>
+					<possible id="5">MIU</possible>
+		            <uuid id="0">MFCS</uuid>
+		            <uuid id="1">MAP</uuid>
+		            <uuid id="2">HTA</uuid>
+		            <uuid id="3">DIABETE</uuid>
+					<uuid id="4">RCIU</uuid>
+					<uuid id="5">MIU</uuid>
+		          </value>
+				  <Item type="shorttext" name="Pathology::Text">
+				  </Item>
+		      </Item>
+		      <Item type="shorttext" name="Parity::3::Malformation">
+	 		   <label lang="fr">Malformation</label>
+			   <label lang="xx">Malformation</label>
+		      </Item>
+		      <Item type="group" name="Group::Parity::3::Perinatal::Mortality">
+	 		   <label lang="fr">Mortalité périnatale</label>
+			   <label lang="xx">Perinatal mortality</label>
+			   <options>collapsible</options>
+			   <Item type="longtext" name="Parity::3::Perinatal::Mortality::Exam">
+		 		   <label lang="fr">Diagnostic Mortalité périnatale</label>
+				   <label lang="xx">Perinatality exam</label>
+			   </Item>
+		      </Item>
+ 	        </Item>
+		    <Item type="group" name="Group::Parity::4">
+ 		      <options>collapsible</options>
+ 		      <label lang="fr">Autre Accouchement antérieur 4</label>
+		      <label lang="xx">Previous Delivery</label>
+
+ 		      <Item type="date" name="Parity::4::Year">
+               <default>year</default>
+			   <options>now;patientLimits</options>
+			   <label lang="xx">Year</label>
+ 			   <label lang="fr">Année</label>
+ 		      </Item>
+ 		      <Item type="shorttext" name="Parity::4::Place::of::delivery">
+			   <label lang="xx">Place of Delivery</label>
+ 			   <label lang="fr">Lieu d'accouchement</label>
+ 		      </Item>
+ 		      <Item type="measurement" name="Parity::4::Weight">
+		         <options>DontPrintEmptyValues;weight</options>
+		         <default>kg</default>
+			   <label lang="xx">Weight (Kg)</label>
+ 			   <label lang="fr">Poids (Kg)</label>
+ 		      </Item>
+		      <Item type="combo" name="Parity::4::Sex">
+			   <label lang="xx">Sex</label>
+ 			   <label lang="fr">Sexe</label>
+			   <value>
+			        <possible id="0">Masculin</possible>
+			        <possible id="1">Féminin</possible>
+			        <possible id="2">Transgender</possible>
+			        <uuid id="0">Masculin</uuid>
+			        <uuid id="1">Féminin</uuid>
+			        <uuid id="2">Transgender</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="shorttext" name="Parity::4::Amnenorhea::Week">
+	 		     <label lang="fr">Semaine amnénorrhée</label>
+			     <label lang="xx">Amnenorrhea Week</label>
+		      </Item>
+		      <Item type="combo" name="Parity::4::Delivery::Mode">
+			   <label lang="xx">Delivery mode</label>
+ 			   <label lang="fr">Mode d'accouchement'</label>
+			   <value>
+			        <possible id="0">AVB</possible>
+			        <possible id="1">AVB avec instruments</possible>
+			        <possible id="2">OCU</possible>
+					<possible id="3">OCP</possible>
+			        <uuid id="0">AVB</uuid>
+			        <uuid id="1">AVB avec instruments</uuid>
+			        <uuid id="2">OCU</uuid>
+					<uuid id="3">OCP</uuid>
+    	        </value>
+		      </Item>
+		      <Item type="group" name="Group::Parity::4::Cesarien::Motif">
+			   <options>collapsible</options>
+	 		   <label lang="fr">Cocher seulement si Mode accouchement OCU ou OCP</label>
+			   <label lang="xx">Checl if only OCU or OCP</label>
+			   <Item type="shorttext" name="Parity::4::Cesarien::Motif::Text">
+			   </Item>   
+		      </Item>
+		      <Item type="multilist" name="Parity::4::Pathology">
+			    <label lang="fr">Pathology </label>
+			    <label lang="xx">Pathologie </label>
+		          <value>
+		            <possible id="0">MFCS</possible>
+		            <possible id="1">MAP</possible>
+		            <possible id="2">HTA</possible>
+		            <possible id="3">DIABETE</possible>
+					<possible id="4">RCIU</possible>
+					<possible id="5">MIU</possible>
+		            <uuid id="0">MFCS</uuid>
+		            <uuid id="1">MAP</uuid>
+		            <uuid id="2">HTA</uuid>
+		            <uuid id="3">DIABETE</uuid>
+					<uuid id="4">RCIU</uuid>
+					<uuid id="5">MIU</uuid>
+		          </value>
+				  <Item type="shorttext" name="Pathology::Text">
+				  </Item>
+		      </Item>
+		      <Item type="shorttext" name="Parity::4::Malformation">
+	 		   <label lang="fr">Malformation</label>
+			   <label lang="xx">Malformation</label>
+		      </Item>
+		      <Item type="group" name="Group::Parity::4::Perinatal::Mortality">
+	 		   <label lang="fr">Mortalité périnatale</label>
+			   <label lang="xx">Perinatal mortality</label>
+			   <options>collapsible</options>
+			   <Item type="longtext" name="Parity::4::Perinatal::Mortality::Exam">
+		 		   <label lang="fr">Diagnostic Mortalité périnatale</label>
+				   <label lang="xx">Perinatality exam</label>
+			   </Item>
+		      </Item>
+ 	        </Item>
+	    </Item>
+    </Item>
+    <Item type="group" name="Group::Pregnancy::interrupted">
+	     <label lang="fr">Grossesse(s) interrompue(s)</label>
+		 <column>2</column>
+	     <Item type="spin" name="Number">
 			      <label lang="fr">Nombre</label>
 			      <label lang="xx">Number</label>
-		       </Item>
-			   <Item type="shorttext" name="Year">
+		 </Item>
+	     <Item type="group" name="First::Case">
+		   <options>collapsible;expanded</options>
+		   <label lang="fr">Premier cas</label>
+			   <Item type="date" name="Pregnancy::Interrupted::Year">
+				   <dateformat>yyyy</dateformat>
+				   <options>patientLimits;now</options>
 				   <label lang="fr">Année</label>
 				   <label lang="xx">Year</label>
 			   </Item>
-			   <Item type="spin" name="SA">
+			   <Item type="spin" name="Pregnancy::interrupted::SA">
 				   <label lang="fr">SA :</label>
 				   <label lang="xx">SA :</label>
 			   </Item>
-	           <Item type="combo" name="Type">
+	           <Item type="combo" name="Pregnancy::interrupted::SA::Type">
 	               <column>1</column>  
 	               <label lang="xx">Type :</label>
 	               <label lang="fr">Type :</label>
@@ -218,7 +597,7 @@
 				    <Item type="shorttext" name="Type::Text">
 			        </Item>
 			   </Item>
-			   <Item type="combo" name="Act">
+			   <Item type="combo" name="Pregnancy::interrupted::Act">
 				   <label lang="fr">Actes</label>
 				   <label lang="xx">Acts</label>
 		           <column>1</column>  
@@ -231,51 +610,206 @@
 					<Item type="shorttext" name="Act::Text">
 				    </Item>
 			   </Item>
-			
-	   </Item>
-	   <Item type="group" name="Frottis">
-		   <options>collapsible</options>
+	     </Item>
+	     <Item type="group" name="Pregnancy::interrupted::autres">
+	          <label lang="fr">Cliquer ici pour Autres Grossesses interrompues mais limitées au 4ème</label>
+	          <options>collapsible</options>
+	          <Item type="group" name="Pregnancy::interrupted::autres::1">
+		            <options>checkable</options>
+		            <label lang="fr">Deuxième cas</label>
+		            <label lang="xx">Grossesse interrompue</label>
+			   <Item type="date" name="Pregnancy::interrupted::autres::1::Year">
+				   <dateformat>yyyy</dateformat>
+				   <label lang="fr">Année</label>
+				   <label lang="xx">Year</label>
+			   </Item>
+			   <Item type="spin" name="Pregnancy::interrupted::autres::1::SA">
+				   <label lang="fr">SA :</label>
+				   <label lang="xx">SA :</label>
+			   </Item>
+	           <Item type="combo" name="Pregnancy::interrupted::autres::1::Type">
+	               <column>1</column>  
+	               <label lang="xx">Type :</label>
+	               <label lang="fr">Type :</label>
+	               <value>
+	                 <possible id="0">FCS</possible>
+	                 <possible id="1">ITG</possible>
+	                 <possible id="2">MOLE</possible>
+	                 <possible id="3">GEU</possible>
+	                 <possible id="4">Oeuf Clair</possible>
+	                 <possible id="5">IGV</possible>
+	                 <uuid id="0">FCS</uuid>
+	                 <uuid id="1">ITG</uuid>
+	                 <uuid id="2">MOLE</uuid>
+	                 <uuid id="3">GEU</uuid>
+	                 <uuid id="4">Oeuf Clair</uuid>
+	                 <uuid id="5">IGV</uuid>
+	     	        </value>
+				    <Item type="shorttext" name="Pregnancy::interrupted::autres::1::Type::Text">
+			        </Item>
+			   </Item>
+			   <Item type="combo" name="Pregnancy::interrupted::autres::1::Act">
+				   <label lang="fr">Actes</label>
+				   <label lang="xx">Acts</label>
+		           <column>1</column>  
+		           <value>
+		              <possible id="0">EIU</possible>
+		              <possible id="1">Médicamenteuses</possible>
+		              <uuid id="0">EIU</uuid>
+		              <uuid id="1">Médicamenteuses</uuid>
+		     	    </value>
+					<Item type="shorttext" name="Pregnancy::interrupted::autres::1::Act::Text">
+				    </Item>
+			   </Item>
+			   
+		      </Item>
+		      <Item type="group" name="Pregnancy::interrupted::autres::2">
+		          <options>collapsible</options>
+		          <label lang="fr">Troisième cas</label>
+		          <label lang="xx">Grossesse interrompue</label>
+			   <Item type="date" name="Pregnancy::interrupted::autres::2::Year">
+		           <dateformat>yyyy</dateformat>
+				   <label lang="fr">Année</label>
+				   <label lang="xx">Year</label>
+			   </Item>
+			   <Item type="spin" name="Pregnancy::interrupted::autres::2::SA">
+				   <label lang="fr">SA :</label>
+				   <label lang="xx">SA :</label>
+			   </Item>
+	           <Item type="combo" name="Pregnancy::interrupted::autres::2::Type">
+	               <column>1</column>  
+	               <label lang="xx">Type :</label>
+	               <label lang="fr">Type :</label>
+	               <value>
+	                 <possible id="0">FCS</possible>
+	                 <possible id="1">ITG</possible>
+	                 <possible id="2">MOLE</possible>
+	                 <possible id="3">GEU</possible>
+	                 <possible id="4">Oeuf Clair</possible>
+	                 <possible id="5">IGV</possible>
+	                 <uuid id="0">FCS</uuid>
+	                 <uuid id="1">ITG</uuid>
+	                 <uuid id="2">MOLE</uuid>
+	                 <uuid id="3">GEU</uuid>
+	                 <uuid id="4">Oeuf Clair</uuid>
+	                 <uuid id="5">IGV</uuid>
+	     	        </value>
+				    <Item type="shorttext" name="Pregnancy::interrupted::autres::2::Type::Text">
+			        </Item>
+			   </Item>
+			   <Item type="combo" name="Pregnancy::interrupted::autres::2::Act">
+				   <label lang="fr">Actes</label>
+				   <label lang="xx">Acts</label>
+		           <column>1</column>  
+		           <value>
+		              <possible id="0">EIU</possible>
+		              <possible id="1">Médicamenteuses</possible>
+		              <uuid id="0">EIU</uuid>
+		              <uuid id="1">Médicamenteuses</uuid>
+		     	    </value>
+					<Item type="shorttext" name="Pregnancy::interrupted::autres::2::Act::Text">
+				    </Item>
+			   </Item>
+			   
+		      </Item>
+		      <Item type="group" name="Pregnancy::interrupted::autres::3">
+		       <options>collapsible</options>
+		       <label lang="fr">Quatrième cas</label>
+		       <label lang="xx">Grossesse interrompue</label>
+			   <Item type="date" name="Pregnancy::interrupted::autres::3::Year">
+		           <dateformat>yyyy</dateformat>
+				   <label lang="fr">Année</label>
+				   <label lang="xx">Year</label>
+			   </Item>
+			   <Item type="spin" name="Pregnancy::interrupted::autres::3::SA">
+				   <label lang="fr">SA :</label>
+				   <label lang="xx">SA :</label>
+			   </Item>
+	           <Item type="combo" name="Pregnancy::interrupted::autres::3::Type">
+	               <column>1</column>  
+	               <label lang="xx">Type :</label>
+	               <label lang="fr">Type :</label>
+	               <value>
+	                 <possible id="0">FCS</possible>
+	                 <possible id="1">ITG</possible>
+	                 <possible id="2">MOLE</possible>
+	                 <possible id="3">GEU</possible>
+	                 <possible id="4">Oeuf Clair</possible>
+	                 <possible id="5">IGV</possible>
+	                 <uuid id="0">FCS</uuid>
+	                 <uuid id="1">ITG</uuid>
+	                 <uuid id="2">MOLE</uuid>
+	                 <uuid id="3">GEU</uuid>
+	                 <uuid id="4">Oeuf Clair</uuid>
+	                 <uuid id="5">IGV</uuid>
+	     	        </value>
+				    <Item type="shorttext" name="Pregnancy::interrupted::autres::3::Type::Text">
+			        </Item>
+			   </Item>
+			   <Item type="combo" name="Pregnancy::interrupted::autres::3::Act">
+				   <label lang="fr">Actes</label>
+				   <label lang="xx">Acts</label>
+		           <column>1</column>  
+		           <value>
+		              <possible id="0">EIU</possible>
+		              <possible id="1">Médicamenteuses</possible>
+		              <uuid id="0">EIU</uuid>
+		              <uuid id="1">Médicamenteuses</uuid>
+		     	    </value>
+					<Item type="shorttext" name="Pregnancy::interrupted::autres::3::Act::Text">
+				    </Item>
+			   </Item>
+			   
+			  </Item>
+	     </Item>
+	</Item>
+    <Item type="group" name="Group::Frottis">
+		   <options>collapsible;expanded</options>
 		   <label lang="fr">Frottis de dépistage</label>
 		   <label lang="xx">Frottis de dépistage</label>
-		   <Item type="date" dateformat="YYYY" name="Year">
+		   <Item type="date" name="Frottis::Year">
+			   <options>patientLimits;now</options>
+			   <dateformat>yyyy</dateformat>
 			   <label lang="fr">Année du dernier frottis :</label>
 			   <label lang="xx">Année du dernier frottis :</label>
 		   </Item>
-		   <Item type="shorttext" name="Result">
+		   <Item type="shorttext" name="Frottis::Result">
 			   <label lang="fr">Résultats :</label>
 			   <label lang="xx">Results :</label>
 		   </Item>
-	   </Item>
+	</Item>
   </MedForm>
   <MedForm type="form" name="Maternity::PMHx::Perso::Med">
+        <options>UseFormNameAsNameSpace</options>
+        <options>unique</options>
         <label lang="xx">Medical PMH</label>
         <label lang="fr">Antécédents Médicaux</label>
         <Item type="group" name="Pulmonary::Disease">
             <label lang="xx">Pulmonary Disease</label>
             <label lang="fr">Maladies pulmonaires :</label>
 			<Item type="group" name="Asthma">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Asthma</label>
 	            <label lang="fr">Asthme</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Asthma::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Bronchite">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Bonchite</label>
 	            <label lang="fr">Bronchite</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Bronchite::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Tuberculosis">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Tuberculosis</label>
 	            <label lang="fr">Tubersculose</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Tuberculosis::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
@@ -285,64 +819,64 @@
             <label lang="xx">Cardiocirculatory Disease</label>
             <label lang="fr">Maladies cardiocirculatoire :</label>
 			<Item type="group" name="HTA">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">HTA</label>
 	            <label lang="fr">HTA</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="HTA::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Heart::Failure">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Heart Failure</label>
 	            <label lang="fr">Insufficance cardiaque</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Heart::Failure::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Coronnary::Failure">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Coronay Failure</label>
 	            <label lang="fr">Insuffisance coronarienne</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Coronary::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Myocard::infarctus">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Myocard infarctus</label>
 	            <label lang="fr">Infarctus de myocarde</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Myocard::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Varicose">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Varicose vein</label>
 	            <label lang="fr">Varice</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Varicose::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Hemorrhoids">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Hemorrhoids</label>
 	            <label lang="fr">Hémorroides</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Hemorrhoids::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Phlebite">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Phlebite</label>
 	            <label lang="fr">Phlebite</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Phlebite::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
@@ -352,28 +886,28 @@
             <label lang="xx">Hepatic Disease</label>
             <label lang="fr">Maladies hépathiques :</label>
 			<Item type="group" name="Hepatic">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Hepatic</label>
 	            <label lang="fr">Hépatite</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Hepatic::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Cirrhosis">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Cirrhosis</label>
 	            <label lang="fr">Cirrhose</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Cirrhosis::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Bleeding::Disorder">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Bleeding disorder</label>
 	            <label lang="fr">Trouble de la coagulation</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Bleeding::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
@@ -383,19 +917,19 @@
             <label lang="xx">Endocrine Disease</label>
             <label lang="fr">Maladies endocriniennes :</label>
 			<Item type="group" name="Diabetes">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Diabetes</label>
 	            <label lang="fr">Diabètes</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Diabetes::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Surenalienne::Failure">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Surenalienne failure</label>
-	            <label lang="fr">Insuffisace surénalienne</label>
-				<Item type="shorttext" name="Comments">
+	            <label lang="fr">Insuffisance surénalienne</label>
+				<Item type="shorttext" name="Surenal::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
@@ -405,28 +939,28 @@
             <label lang="xx">Others Disease</label>
             <label lang="fr">Autres Maladies :</label>
 			<Item type="group" name="Herpes">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Herpes</label>
 	            <label lang="fr">Herpès</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="others:Disease::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Cervico::Vaginal::Infection">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Cerviceo-Vaginal infection</label>
 	            <label lang="fr">Infection cerviceo-vaginale</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Cervico::Vaginal::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
 			</Item>
 			<Item type="group" name="Urinary::Tract::Infection">
-				<options>collapsible</options>
+				<options>checkable</options>
 	            <label lang="xx">Urinary tract infection</label>
 	            <label lang="fr">Infection urinaire</label>
-				<Item type="shorttext" name="Comments">
+				<Item type="shorttext" name="Urinary::Tract::Comments">
 		            <label lang="xx">Comments</label>
 		            <label lang="fr">Commentaires :</label>
 				</Item>
@@ -434,31 +968,36 @@
 		</Item>	
   </MedForm> 
   <MedForm type="form" name="Maternity::PMHx::Perso::Allergy">
+ <options>UseFormNameAsNameSpace</options>
+ <options>unique</options>
           <label lang="xx">Allergy</label>
-          <label lang="fr">Allergies :</label>
+          <label lang="fr">Antécédents Allergiques :</label>
           <Item type="group" name="Food">
               <label lang="xx">Food Allergy</label>
               <label lang="fr">Alimentaires :</label>
-  			<Item type="shorttext" name="Text">
+  			<Item type="shorttext" name="Food::Text">
   			</Item>
   		</Item>
         <Item type="group" name="Drugs">
             <label lang="xx">Drugs Allergy</label>
             <label lang="fr">Médicamenteuses :</label>
-			<Item type="shorttext" name="Text">
+			<Item type="shorttext" name="Drugs::Text">
 			</Item>
 		</Item>
         <Item type="group" name="Contact">
             <label lang="xx">Contact allergies</label>
             <label lang="fr">de contact :</label>
-			<Item type="shorttext" name="Text">
+			<Item type="shorttext" name="Touching::Text">
 			</Item>
 		</Item>
   </MedForm>
   <MedForm type="form" name="Maternity::PMHx::Perso::Surg">
-	    <label lang="xx">Surgical PMH</label>
+        <options>UseFormNameAsNameSpace</options>
+        <options>unique</options>
+        <label lang="xx">Surgical PMH</label>
         <label lang="fr">Antécédents Chirurgicaux</label>
-		<Item type="date" options="format=YYYY" name="Year">
+		<Item type="date" options="patientlimits;now" name="Year">
+			<dateformat>yyyy</dateformat>
             <label lang="xx">Year</label>
             <label lang="fr">Année :</label>	
 		</Item>	
@@ -484,13 +1023,15 @@
  
 			      <numerical id="0">1</numerical>
 			      <numerical id="1">2</numerical>
-			      <numerical id="2">4</numerical>
+			      <numerical id="2">3</numerical>
 			    </value>
 		</Item>
   </MedForm>
   <MedForm type="form" name="Maternity::PMHx::Perso::Transfusion">
+   <options>UseFormNameAsNameSpace</options>
+   <options>unique</options>
           <label lang="xx">Blood Transfusion</label>
-          <label lang="fr">ATCD de Transfusion (une saisie)</label>
+          <label lang="fr">Antécédents de Transfusion </label>
    	   <Item type="group" name="Transfusion">
    		   <options>collapsible</options>
    		   <label lang="fr">ATCD de tansfusion</label>
@@ -506,8 +1047,10 @@
    	   </Item>
   </MedForm>
   <MedForm type="form" name="Maternity::PMHx::Perso::Toxic">
+  <options>UseFormNameAsNameSpace</options>
+  <options>unique</options>
             <label lang="xx">Toxic</label>
-            <label lang="fr">ATCD Toxiques</label>
+            <label lang="fr">Antécédents Toxiques</label>
 	 	    <Item type="combo" name="Tabac">   
 	 		   <label lang="fr">Tabac à chiquer</label>
 	 		   <label lang="xx">Tabac</label>
@@ -522,7 +1065,7 @@
 	                 <uuid id="2">Avant</uuid>
 	                 <uuid id="3">Avant et Pendant</uuid>
 	     	       </value>
-	           <Item type="spin" name="Qty">
+	           <Item type="spin" name="Tabac::Qty">
 			       <label lang="fr">Quqntité :</label>
 			      <label lang="xx">Qty :</label>
 	           </Item>
@@ -537,8 +1080,8 @@
 	                 <uuid id="0">Oui</uuid>
 	                 <uuid id="1">Non</uuid> 
 	     	       </value>
-	           <Item type="spin" name="Qty">
-			       <label lang="fr">Quqntité :</label>
+	           <Item type="spin" name="Alcohol::Qty">
+			       <label lang="fr">Quantité :</label>
 			      <label lang="xx">Qty :</label>
 	           </Item>
 		    </Item> 
@@ -556,7 +1099,7 @@
 	                 <uuid id="2">Avant</uuid>
 	                 <uuid id="3">Avant et Pendant</uuid>
 	     	       </value>
-	           <Item type="spin" name="Qty">
+	           <Item type="spin" name="Narcotic::Qty">
 			       <label lang="fr">Quqntité :</label>
 			      <label lang="xx">Qty :</label>
 	           </Item>
@@ -564,13 +1107,15 @@
 	 	    <Item type="shorttext" name="Other">
 	 			<label lang="fr">Autres :</label>
 	 			<label lang="xx">Others :</label>
-		        <Item type="spin" name="Qty">
+		        <Item type="spin" name="Other::Qty">
  			       <label lang="fr">Quqntité :</label>
  			      <label lang="xx">Qty :</label>
 		        </Item>
 		    </Item>
   </MedForm>
   <MedForm type="form" name="Maternity::PMHx::Perso::Current">
+          <options>UseFormNameAsNameSpace</options>
+          <options>unique</options>
 	          <label lang="xx">Running traitment</label>
 	          <label lang="fr">Traitement en cours</label>
    			  <Item type="Longtext" name="Maternity::PMHx::Current">

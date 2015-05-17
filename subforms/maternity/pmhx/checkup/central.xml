@@ -29,14 +29,14 @@
   <bibliography lang="fr">Bibliographie ici</bibliography>
   <license lang="fr">Termes de la license</license>
   <options>UseFormNameAsNameSpace</options>
-  <Item type="group" name="Blood">
+  <Item type="group" name="Maternity::PMHX::Checkup::Blood">
         <label options="labelontop" lang="xx">Blood Group</label>
 		<label options="labelontop" lang="fr">Groupe Sanguin</label>
 		<column>2</column>
-		<Item type="group" name="Patient">
+		<Item type="group" name="Maternity::PMHX::Checkup::Patient">
 		   <label options="labelontop" lang="xx">Patient</label>
 		   <label options="labelontop" lang="fr">Patient</label>
-		   <Item type="combo" name="Group">
+		   <Item type="combo" name="Maternity::PMHX::Checkup::Patient::Blood::Group">
 		     <label options="labelontop" lang="fr">Groupe sanguin</label>
 			 <label options="labelontop" lang="fr">Groupe sanguin</label>
 		     <value>
@@ -50,7 +50,7 @@
 		       <uuid id="3">O</uuid>       
 		     </value>
 		   </Item>
-		   <Item type="combo" name="Rhésus">
+		   <Item type="combo" name="Maternity::PMHX::Checkup::Patient::Blood::Rhesus">
 		     <label options="labelontop" lang="fr">Rhésus</label>
 			 <label options="labelontop" lang="xx">Rhésus</label>
 		     <value>
@@ -60,7 +60,7 @@
 		       <uuid id="1">Négatif</uuid> 
 		     </value>
 		   </Item>
-		   <Item type="combo" name="RAI">
+		   <Item type="combo" name="Blood::RAI">
 		     <label options="labelontop" lang="fr">RAI </label>
 			 <label options="labelontop" lang="xx">RAI </label>
 		     <value>
@@ -70,7 +70,7 @@
 		       <uuid id="1">Négatif</uuid> 
 		     </value>
 		   </Item>
-		   <Item type="combo" name="BU">
+		   <Item type="combo" name="Blood::BU">
 		     <label options="labelontop" lang="fr">BU </label>
 			 <label options="labelontop" lang="xx">BU </label>
 		     <value>
@@ -80,7 +80,7 @@
 		       <uuid id="1">Négatif</uuid> 
 		     </value>
 		   </Item>
-		   <Item type="combo" name="BW">
+		   <Item type="combo" name="Maternity::PMHX::Checkup::patient::BW">
 		     <label options="labelontop" lang="fr">BW </label>
 			 <label options="labelontop" lang="xx">BW </label>
 		     <value>
@@ -91,10 +91,10 @@
 		     </value>
 		   </Item>
 		</Item>
-		<Item type="group" name="Conjoint">
+		<Item type="group" name="Maternity::PMHX::Checkup::Conjoint">
 		   <label options="labelontop" lang="fr">Conjoint</label>
 		   <label options="labelontop" lang="xx">Conjoint</label>
-		   <Item type="combo" name="Group">
+		   <Item type="combo" name="Maternity::PMHX::Checkup::Conjoint::Group">
 		     <label options="labelontop" lang="fr">Groupe sanguin</label>
 			 <label options="labelontop" lang="xx">Groupe sanguin</label>
 		     <value>
@@ -108,7 +108,7 @@
 		       <uuid id="3">O</uuid>       
 		     </value>
 		   </Item>
-   	       <Item type="combo" name="Rhésus">
+   	       <Item type="combo" name="Conjoint::Rhesus">
    	          <label options="labelontop" lang="fr">Rhésus</label>
 			  <label options="labelontop" lang="xx">Rhésus</label>
    	          <value>
@@ -120,7 +120,7 @@
    	       </Item>
 		</Item>
   </Item>
-  <Item type="group" name="Toxoplasmose">
+  <Item type="group" name="Group::Toxoplasmose">
 	 <label options="labelonleft" lang="xx">Toxoplasmosis PMH</label>
 	 <label options="labelonleft" lang="fr">ATCD Toxoplasmose</label>
 	 <column>2</column>
@@ -143,22 +143,22 @@
 	      <Item type="numeric" name="Toxoplasmosis::Week">
 	          <label options="labelontop" lang="xx">Week Amenorrhea.</label>
 			  <label options="labelontop" lang="fr">Semaine aménorrhée de séroconversion</label>
-	        </Item>
+	      </Item>
 	      <Item type="date" name="Toxoplasmosis::Date">
 	          <label options="labelontop" lang="xx">Date of finding</label>
 			  <label options="labelontop" lang="fr">Date de découverte</label>
-	        </Item>
+	      </Item>
 	      <Item type="shorttext" name="Toxoplasmosis::ICG">
 	          <label options="labelontop" lang="xx">ICG</label>
 			  <label options="labelontop" lang="fr">ICG</label>
-	        </Item>
-	     <Item type="shorttext" name="Toxoplasmosis::IGM">
+	      </Item>
+	      <Item type="shorttext" name="Toxoplasmosis::IGM">
 	          <label options="labelontop" lang="xx">IGM</label>
 			  <label options="labelontop" lang="fr">IGM</label>
-	        </Item>
+	      </Item>
     </Item>
   </Item>
-  <Item type="group" name="Rubella">
+  <Item type="group" name="Group::Rubella">
 	 <label options="labelonleft" lang="xx">Rubella PMH</label>
 	 <label options="labelonleft" lang="fr">ATCD Rubéole</label>
 	 <column>2</column>
@@ -174,29 +174,29 @@
  		       <uuid id="2">Séroconversion</uuid>     
  		     </value>  
 	</Item> 
-	<Item type="group" name="Seroconversion">
+	<Item type="group" name="Group::Seroconversion">
 	   <label options="labelontop" lang="xx">If Seroconversion selected</label>
 	   <label options="labelontop" lang="fr">Cocher ici seulement si Seroconversion est selectionné</label>
 	   <options>collapsible</options>
-	      <Item type="numeric" name="Week">
+	      <Item type="numeric" name="Seroconversion::Week">
 	          <label options="labelontop" lang="xx">Week Amenorrhea.</label>
 			  <label options="labelontop" lang="fr">Semaine aménorrhée de séroconversion</label>
 	        </Item>
-	      <Item type="date" name="Date">
+	      <Item type="date" name="Seroconversion::Date">
 	          <label options="labelontop" lang="xx">Date of finding</label>
 			  <label options="labelontop" lang="fr">Date de découverte</label>
 	        </Item>
-	      <Item type="shorttext" name="ICG">
+	      <Item type="shorttext" name="Seroconversion::ICG">
 	          <label options="labelontop" lang="xx">ICG</label>
 			  <label options="labelontop" lang="fr">ICG</label>
 	        </Item>
-	     <Item type="shorttext" name="Toxoplasmosis::IGM">
+	     <Item type="shorttext" name="Seroconversion::IGM">
 	          <label options="labelontop" lang="xx">IGM</label>
 			  <label options="labelontop" lang="fr">IGM</label>
 	        </Item>
     </Item>
   </Item>
-  <Item type="group" name="HIV">
+  <Item type="group" name="Group::HIV">
 		 <label options="labelonleft" lang="xx">HIV PMH</label>
 		 <label options="labelonleft" lang="fr">ATCD VIH</label>
 		<Item type="combo" name="HIV">
@@ -210,11 +210,11 @@
 	     </value> 
 	    </Item> 
   </Item>
-  <Item type="group" name="B::Hepatic">
+  <Item type="group" name="Group::B::Hepatic">
 	 <label options="labelonleft" lang="xx">B Hepatic PMH</label>
 	 <label options="labelonleft" lang="fr">ATCD Hépatite B</label>
 	 <column>2</column>
-	<Item type="combo" name="CHepatic">
+	<Item type="combo" name="B::Hepatic">
 	          <label options="labelontop" lang="xx">B Hepatic</label>
 			  <label options="labelontop" lang="xx">Hépatite B</label>
  		     <value>
@@ -224,15 +224,15 @@
  		       <uuid id="1">Négatif</uuid>    
  		     </value>  
 	</Item> 
-	<Item type="group" name="C::Hpetatic">
+	<Item type="group" name="Group::B::Heptatic::Positif">
 	   <label options="labelontop" lang="xx">If only B Hepatic Positif selected</label>
 	   <label options="labelontop" lang="fr">Cocher ici seulement Hépatite B Positif</label>
 	   <options>collapsible</options>
-	      <Item type="date" name="Date">
+	      <Item type="date" name="B::Heptatic::Date">
 	          <label options="labelontop" lang="xx">Date of finding</label>
 			  <label options="labelontop" lang="fr">Date de découverte</label>
 	        </Item>
-	      <Item type="combo" name="conclusion">
+	      <Item type="combo" name="B::Heptatic::Conclusion">
 	          <label options="labelontop" lang="xx">Conclusion</label>
 			  <label options="labelontop" lang="fr">Conclusion</label>
   		     <value>
@@ -244,7 +244,7 @@
 	      </Item>     
     </Item>
   </Item>
-  <Item type="Long text" name="Other">
+  <Item type="Long text" name="B::Heptatic::Other">
  	 <label options="labelonleft" lang="xx">Others</label>
  	 <label options="labelonleft" lang="fr">Autres Antécédents à demander Dr</label>
   </Item>
@@ -252,15 +252,15 @@
 	  <label options="labelontop" lang="xx">Hemathology</label>
 	  <label options="labelontop" lang="fr">Hémathologie</label>
 	  <column>2</column>
-	  <Item type="longtext" name="NFS">
+	  <Item type="longtext" name="Hemathology::NFS">
 		  <label options="labelontop" lang="xx">NFS</label>
 		  <label options="labelontop" lang="fr">Saisir NFS au tant que sur la case ci-dessous</label>
 	  </Item>
-	  <Item type="spin" name="HB">
+	  <Item type="spin" name="Hemathology::HB">
 		  <label options="labelontop" lang="xx">HB</label>
 		  <label options="labelontop" lang="fr">Hb :</label>
 	  </Item>
-	  <Item type="longtext" name="Plaquette">
+	  <Item type="longtext" name="Hemathology::Plaquette">
 		  <label options="labelontop" lang="xx">Plaquette</label>
 		  <label options="labelontop" lang="fr">Saisir Plaquettes au tant que dans la case ci-dessous</label>
 	  </Item>
@@ -273,7 +273,7 @@
 		  		  <label options="labelontop" lang="fr">Saisir Les autres ici</label>
 	  </Item>
   </Item>
-  <Item type="group" name="Urine::Strips">
+  <Item type="group" name="Group::Urine::Strips">
       <Item type="combo" name="Urine::Strips">
           <label options="labelontop" lang="xx">Urine strips</label>
 		  <label options="labelontop" lang="fr">Bandelettes urinaires</label>
@@ -307,11 +307,11 @@
 		      <options>collapsible</options>
 		      <label lang="fr">Syphillis</label>
 			  <label lang="xx">Syphillis</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="Syphillis::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 				 </Item>
-			  <Item type="combo" name="Resultats">
+			  <Item type="combo" name="Syphillis::Results">
 			         <label lang="xx">Results :</label>
 					 <label lang="xx">Résultats :</label>
 		   		    <value>
@@ -321,7 +321,7 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="Syphillis::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
@@ -336,10 +336,10 @@
 			     </Item>
 	   </Item>    
 	   <Item type="group" name="Serology::Toxo">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="xx">Serology</label>
 			  <label lang="fr">Sérologie</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="Serology::Toxo::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 			  </Item>
@@ -353,7 +353,7 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="Serology::Toxo::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
@@ -368,10 +368,10 @@
 			  </Item>
 	   </Item>
 	   <Item type="group" name="Serology::Rubella">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="xx">Serology Rubella</label>
 			  <label lang="fr">Sérologie rubéole</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="Serology::Rubella::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 			  </Item>
@@ -385,29 +385,29 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="Serology::Rubella::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
-				      <Item type="spin" name="Rate">
+				      <Item type="spin" name="Serology::Rubella::Rate">
 				        <label lang="xx">Taux</label>
 						<label lang="fr">Taux</label>
 				      </Item>
-					  <Item type="shorttext" name="Conclusion">
+					  <Item type="shorttext" name="Serology::Rubella::Conclusion">
   				        <label lang="xx">Conclusion</label>
   						<label lang="fr">Conclusion</label>
 				      </Item>
 			  </Item>
 	   </Item> 
 	   <Item type="group" name="Serology::HIV">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="xx">Serology HIV</label>
 			  <label lang="fr">Sérologie VIH</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="Serology::HIV::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 			  </Item>
-			  <Item type="combo" name="Resultats">
+			  <Item type="combo" name="Serology::HIV::Results">
 			         <label lang="xx">Results :</label>
 					 <label lang="xx">Résultats :</label>
 		   		    <value>
@@ -417,29 +417,29 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="Serology::HIV::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
-				      <Item type="spin" name="Rate">
+				      <Item type="spin" name="Serology::HIV::Rate">
 				        <label lang="xx">Taux</label>
 						<label lang="fr">Taux</label>
 				      </Item>
-					  <Item type="shorttext" name="Conclusion">
+					  <Item type="shorttext" name="Serology::HIV::Conclusion">
   				        <label lang="xx">Conclusion</label>
   						<label lang="fr">Conclusion</label>
 				      </Item>
 			  </Item>
 	   </Item>
 	   <Item type="group" name="Serology::B::Hepatitc">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="xx">Serology B Hepatic</label>
 			  <label lang="fr">Sérologie Hépatite B</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="Serology::B::Hepatitc::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 			  </Item>
-			  <Item type="combo" name="Resultats">
+			  <Item type="combo" name="Serology::B::Hepatitc::Results">
 			         <label lang="xx">Results :</label>
 					 <label lang="xx">Résultats :</label>
 		   		    <value>
@@ -449,7 +449,7 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="Serology::B::Hepatitc::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
@@ -464,14 +464,14 @@
 			  </Item>
 	   </Item>
 	   <Item type="group" name="O::Sullivan">
-		      <options>collapsible</options>
+		      <options>checkable</options>
 		      <label lang="xx">O Sullivan</label>
 			  <label lang="fr">Test O Sullivan</label>
-			  <Item type="date" name="Date">
+			  <Item type="date" name="O::Sullivan::Date">
 			         <label lang="xx">Date of the test</label>
 					 <label lang="xx">Date du test</label>
 			  </Item>
-			  <Item type="combo" name="Resultats">
+			  <Item type="combo" name="O::Sullivan::Results">
 			         <label lang="xx">Results :</label>
 					 <label lang="xx">Résultats :</label>
 		   		    <value>
@@ -481,31 +481,31 @@
 		   	  		 <uuid id="1">Négatif</uuid>    
 		   	  	    </value>
 			  </Item>
-			  <Item type="group" name="Added">
+			  <Item type="group" name="O::Sullivan::Added">
 				      <label lang="xx">Check only if Results positif</label>
 					  <label lang="fr">A cocher si Results positif</label>
 				      <options>collapsible</options>
-				      <Item type="spin" name="Rate">
+				      <Item type="spin" name="O::Sullivan::Rate">
 				        <label lang="xx">Taux</label>
 						<label lang="fr">Taux</label>
 				      </Item>
-					  <Item type="shorttext" name="Conclusion">
+					  <Item type="shorttext" name="O::Sullivan::Conclusion">
   				        <label lang="xx">Conclusion</label>
   						<label lang="fr">Conclusion</label>
 				      </Item>
 			  </Item>
 	   </Item>             
   </Item>
-  <Item type="group" name="">
+  <Item type="group" name="Group::CRP">
 	<column>2</column> 
 	<Item type="group" name="CRP">
 		<label lang="fr">CRP</label>
 		<label lang="xx">CRP</label>	
-      <Item type="date" name="Date">
+      <Item type="date" name="CRP::Date">
 	    <label lang="fr">CRP Date</label>
 	    <label lang="xx">Date CRP</label>
 	  </Item> 
-	  <Item type="spin" name="Number">
+	  <Item type="spin" name="CRP::Number">
   		  <label lang="fr">CRP nombre</label>
   		  <label lang="xx">Enter number</label>
 	  </Item>
@@ -513,11 +513,11 @@
     <Item type="group" name="Creatinine">
 		<label lang="fr">Créatininémie</label>
 		<label lang="xx">Créatininémie</label>
-	    <Item type="date" name="Date">
+	    <Item type="date" name="Creatinine::Date">
 	      <label lang="fr">Créatininémie</label>
 	      <label lang="xx">Creatinine</label>
 	    </Item>
-	    <Item type="shorttext" name="text">
+	    <Item type="shorttext" name="Creatinine::Text">
   		  <label lang="fr">Saisir texte</label>
   		  <label lang="xx">Enter text</label>
 	    </Item>
@@ -525,11 +525,11 @@
     <Item type="Group" name="Proteine::24h">
 	  <label lang="fr">Protéinure 24H</label>
 	  <label lang="xx">Proteine 24h</label>
-	  <Item type="date" name="date">
+	  <Item type="date" name="Proteine::24h::Date">
 		  <label lang="fr">Saisir date</label>
 		  <label lang="xx">Enter date</label>
 	  </Item>
-	  <Item type="combo" name="text">
+	  <Item type="combo" name="Proteine::24h::Text">
   		  <label lang="fr">Choisir</label>
   		  <label lang="xx">Choice</label>
  		    <value>
@@ -543,20 +543,20 @@
 			<options>collapsible</options>
 			<label lang="fr">Cocher si Positif</label>
 			<label lang="xx">Check if Positif</label>
-			<Item type="longtext" name="case">
+			<Item type="longtext" name="Fill::Case::Text">
 		    </Item>
-		</Item>
+	  </Item>
     </Item>
     <Item type="group" name="Others::Exam">
 	  <label lang="fr">Autres</label>
 	  <label lang="xx">Other</label>
-	  <Item type="shorttext" name="">
+	  <Item type="shorttext" name="Others::Exam::Text">
 	  </Item>
-	  <Item type="date" name="date">
+	  <Item type="date" name="Others::Exam::Date">
 		  <label lang="fr">Saisir date</label>
 		  <label lang="xx">Enter date</label>
 	  </Item>
-	  <Item type="combo" name="Text">
+	  <Item type="combo" name="Others::Exam::Text::Status">
   		  <label lang="fr">Choisir</label>
   		  <label lang="xx">Choice</label>
  		    <value>
